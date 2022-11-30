@@ -1,0 +1,522 @@
+StartDate,EndDate,Status,IPAddress,Progress,Duration (in seconds),Finished,RecordedDate,ResponseId,RecipientLastName,RecipientFirstName,RecipientEmail,ExternalReference,LocationLatitude,LocationLongitude,DistributionChannel,UserLanguage,Q_RecaptchaScore,Q_RelevantIDDuplicate,Q_RelevantIDDuplicateScore,Q_RelevantIDFraudScore,Q_RelevantIDLastStartDate,Q2,Q27,Q28,Q3,Q4,Q7,Q8,Q9,Q10,Q25_0_GROUP,Q25_1_GROUP,Q25_0_1_RANK,Q25_0_3_RANK,Q25_0_12_RANK,Q25_0_16_RANK,Q25_1_1_RANK,Q25_1_3_RANK,Q25_1_12_RANK,Q25_1_16_RANK,Q21_First Click,Q21_Last Click,Q21_Page Submit,Q21_Click Count,Q29_0_GROUP,Q29_1_GROUP,Q29_2_GROUP,Q29_0_1_RANK,Q29_0_2_RANK,Q29_0_3_RANK,Q29_0_4_RANK,Q29_0_5_RANK,Q29_0_6_RANK,Q29_1_1_RANK,Q29_1_2_RANK,Q29_1_3_RANK,Q29_1_4_RANK,Q29_1_5_RANK,Q29_1_6_RANK,Q29_2_1_RANK,Q29_2_2_RANK,Q29_2_3_RANK,Q29_2_4_RANK,Q29_2_5_RANK,Q29_2_6_RANK,Q74_1,Q74_2,Q74_3,Q74_4,Q75_1,Q75_2,Q75_3,Q75_4,Q76_1,Q76_2,Q76_3,Q76_4,Small_1,Small_2,Small_3,Small_4,Medium_1,Medium_2,Medium_3,Medium_4,Large_1,Large_2,Large_3,Large_4,Q26,Random ID,Shelter_Information,Shelter_Type_1,Shelter_Type_2,Shelter_Type_3,Shelter_Type_4
+Start Date,End Date,Response Type,IP Address,Progress,Duration (in seconds),Finished,Recorded Date,Response ID,Recipient Last Name,Recipient First Name,Recipient Email,External Data Reference,Location Latitude,Location Longitude,Distribution Channel,User Language,Q_RecaptchaScore,Q_RelevantIDDuplicate,Q_RelevantIDDuplicateScore,Q_RelevantIDFraudScore,Q_RelevantIDLastStartDate,What is your age?,What is your gender?,What is your marital status?,What is your annual gross income in USD ?,"50 States, D.C. and Puerto Rico",Do you own a dog ?,Do you prefer dogs or cats ?,Would you rather shop for a dog or adopt a dog ?,What is your preferred dog size ?,Group the shelter characteristics to the appropriate group of shelter type : - Groups - Traditional Shelter,Group the shelter characteristics to the appropriate group of shelter type : - Groups - No-Kill Shelter,"Group the shelter characteristics to the appropriate group of shelter type : - Ranks - Traditional Shelter - Abstain from animal euthanization
+ - Rank","Group the shelter characteristics to the appropriate group of shelter type : - Ranks - Traditional Shelter - Accept and care for all animals
+ - Rank",Group the shelter characteristics to the appropriate group of shelter type : - Ranks - Traditional Shelter - Consider euthanizing ill or unadoptable animals - Rank,"Group the shelter characteristics to the appropriate group of shelter type : - Ranks - Traditional Shelter - Avoid and transfer responsibility for overcrowding to other shelters
+ - Rank","Group the shelter characteristics to the appropriate group of shelter type : - Ranks - No-Kill Shelter - Abstain from animal euthanization
+ - Rank","Group the shelter characteristics to the appropriate group of shelter type : - Ranks - No-Kill Shelter - Accept and care for all animals
+ - Rank",Group the shelter characteristics to the appropriate group of shelter type : - Ranks - No-Kill Shelter - Consider euthanizing ill or unadoptable animals - Rank,"Group the shelter characteristics to the appropriate group of shelter type : - Ranks - No-Kill Shelter - Avoid and transfer responsibility for overcrowding to other shelters
+ - Rank",Timing - First Click,Timing - Last Click,Timing - Page Submit,Timing - Click Count,Map the dog breeds into their appropriate groups: - Groups - Small,Map the dog breeds into their appropriate groups: - Groups - Medium,Map the dog breeds into their appropriate groups: - Groups - Large,Map the dog breeds into their appropriate groups: - Ranks - Small - French BullDog - Rank,Map the dog breeds into their appropriate groups: - Ranks - Small - Australian Shepherd - Rank,Map the dog breeds into their appropriate groups: - Ranks - Small - German Shepherd - Rank,Map the dog breeds into their appropriate groups: - Ranks - Small - Shetland Sheepdog - Rank,Map the dog breeds into their appropriate groups: - Ranks - Small - Beagle - Rank,Map the dog breeds into their appropriate groups: - Ranks - Small - Labrador Retriever - Rank,Map the dog breeds into their appropriate groups: - Ranks - Medium - French BullDog - Rank,Map the dog breeds into their appropriate groups: - Ranks - Medium - Australian Shepherd - Rank,Map the dog breeds into their appropriate groups: - Ranks - Medium - German Shepherd - Rank,Map the dog breeds into their appropriate groups: - Ranks - Medium - Shetland Sheepdog - Rank,Map the dog breeds into their appropriate groups: - Ranks - Medium - Beagle - Rank,Map the dog breeds into their appropriate groups: - Ranks - Medium - Labrador Retriever - Rank,Map the dog breeds into their appropriate groups: - Ranks - Large - French BullDog - Rank,Map the dog breeds into their appropriate groups: - Ranks - Large - Australian Shepherd - Rank,Map the dog breeds into their appropriate groups: - Ranks - Large - German Shepherd - Rank,Map the dog breeds into their appropriate groups: - Ranks - Large - Shetland Sheepdog - Rank,Map the dog breeds into their appropriate groups: - Ranks - Large - Beagle - Rank,Map the dog breeds into their appropriate groups: - Ranks - Large - Labrador Retriever - Rank,"For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Harry
+		
+		
+			Breed: Chihuahua
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Friendly, Affectionate, Gentle, Playful","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Opie
+		
+		
+			Breed: Terrier Mix
+		
+		
+			Gender: Male
+		
+		
+			
+			Character:  Funny, loves kisses, curious, couch potato","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Princess Pinky
+		
+		
+			Breed: Chihuahua and Terrier   Mix
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Affectionate, Loyal, Brave, Athletic, Protective, Dignified","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Pippa
+		
+		
+			Breed: Dachshund & Basenji Mix 
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Smart, Protective, Athletic, Loves Kisses, Funny","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Stanley
+		
+		
+			Breed: English Bulldog
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Friendly, Affectionate, Gentle, Playful","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Rocky
+		
+		
+			Breed: Pit Bull Terrier Mix
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Funny, loves kisses, curious, couch potato","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Retton
+		
+		
+			Breed: Terrier & Australian Kelpie Mix
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Affectionate, Loyal, Brave, Athletic, Protective, Dignified","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Nella
+		
+		
+			Breed: American Staffordshire  Terrier & Pit Bull Terrier Mix
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Smart, Protective, Athletic, Loves Kisses, Funny","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Damon
+		
+		
+			Breed: German Shepherd Dog & Labrador Retriever Mix
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Friendly, Affectionate, Gentle, Playful","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Violet
+		
+		
+			Breed: Labrador Retriever Mix & Black Labrador Retriever Mix 
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Funny, loves kisses, curious, couch potato","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Leia
+		
+		
+			Breed: Doberman Pinscher & German Shepherd Dog Mix
+		
+		
+			Gender:  Female
+		
+		
+			
+			Character: Affectionate, Loyal, Brave, Athletic, Protective, Dignified","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Victor
+		
+		
+			Breed: Mastiff Mix
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Friendly, Affectionate, Gentle, Playful, Curious, Quiet, Loves kisses","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely  
+
+
+
+10 - Extremely likely - Name: Harry
+  
+  
+   [Field-Shelter_Type_1]
+  
+  
+   Breed: Chihuahua
+  
+  
+   Gender: Male
+  
+  
+   
+   Character: Friendly, Affectionate, Gentle, Playful","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely  
+
+
+
+10 - Extremely likely - Name: Opie
+		
+		
+			[Field-Shelter_Type_2]
+		
+		
+			Breed: Terrier Mix
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Funny, loves kisses, curious, couch potato","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely  
+
+
+
+10 - Extremely likely - Name: Princess Pinky
+		
+		
+			[Field-Shelter_Type_3]
+		
+		
+			Breed: Chihuahua and Terrier   Mix
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Affectionate, Loyal, Brave, Athletic, Protective, Dignified","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely  
+
+
+
+10 - Extremely likely - Name: Pippa
+		
+		
+			[Field-Shelter_Type_4]
+		
+		
+			Breed: Dachshund & Basenji Mix 
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Smart, Protective, Athletic, Loves Kisses, Funny","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Stanley
+		
+		
+			[Field-Shelter_Type_1]
+		
+		
+			Breed: English Bulldog
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Friendly, Affectionate, Gentle, Playful","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Rocky
+		
+		
+			[Field-Shelter_Type_2]
+		
+		
+			Breed: Pit Bull Terrier Mix
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Funny, loves kisses, curious, couch potato","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Retton
+		
+		
+			[Field-Shelter_Type_3]
+		
+		
+			Breed: Terrier & Australian Kelpie Mix
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Affectionate, Loyal, Brave, Athletic, Protective, Dignified","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Nella
+		
+		
+			[Field-Shelter_Type_4]
+		
+		
+			Breed: American Staffordshire  Terrier & Pit Bull Terrier Mix
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Friendly, Loyal, Playful, Smart, Curious, Independent, Loves kisses","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Damon
+		
+		
+			[Field-Shelter_Type_1]
+		
+		
+			Breed: German Shepherd Dog & Labrador Retriever Mix
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Friendly, Affectionate, Gentle, Playful","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Violet
+		
+		
+			[Field-Shelter_Type_2]
+		
+		
+			Breed: Labrador Retriever Mix & Black Labrador Retriever Mix 
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Funny, loves kisses, curious, couch potato","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Leia
+		
+		
+			[Field-Shelter_Type_3]
+		
+		
+			Breed: Doberman Pinscher & German Shepherd Dog Mix
+		
+		
+			Gender:  Female
+		
+		
+			
+			Character: Affectionate, Loyal, Brave, Athletic, Protective, Dignified","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Victor
+		
+		
+			[Field-Shelter_Type_4]
+		
+		
+			Breed: Mastiff Mix
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Friendly, Affectionate, Gentle, Playful, Curious, Quiet, Loves kisses","Here is your unique completion ID : [Field-Random%20ID]
+
+
+
+TO RECEIVE COMPENSATION, copy and paste this value into BOTH the below text box and ALSO into Mechanical Turk.
+
+
+
+When you have pasted the above ID into both locations, please click the next button to submit your survey.",Random ID,Shelter_Information,Shelter_Type_1,Shelter_Type_2,Shelter_Type_3,Shelter_Type_4
+"{""ImportId"":""startDate"",""timeZone"":""America/Denver""}","{""ImportId"":""endDate"",""timeZone"":""America/Denver""}","{""ImportId"":""status""}","{""ImportId"":""ipAddress""}","{""ImportId"":""progress""}","{""ImportId"":""duration""}","{""ImportId"":""finished""}","{""ImportId"":""recordedDate"",""timeZone"":""America/Denver""}","{""ImportId"":""_recordId""}","{""ImportId"":""recipientLastName""}","{""ImportId"":""recipientFirstName""}","{""ImportId"":""recipientEmail""}","{""ImportId"":""externalDataReference""}","{""ImportId"":""locationLatitude""}","{""ImportId"":""locationLongitude""}","{""ImportId"":""distributionChannel""}","{""ImportId"":""userLanguage""}","{""ImportId"":""Q_RecaptchaScore""}","{""ImportId"":""Q_RelevantIDDuplicate""}","{""ImportId"":""Q_RelevantIDDuplicateScore""}","{""ImportId"":""Q_RelevantIDFraudScore""}","{""ImportId"":""Q_RelevantIDLastStartDate"",""timeZone"":""UTC""}","{""ImportId"":""QID2""}","{""ImportId"":""QID83""}","{""ImportId"":""QID84""}","{""ImportId"":""QID6""}","{""ImportId"":""QID8""}","{""ImportId"":""QID10""}","{""ImportId"":""QID11""}","{""ImportId"":""QID12""}","{""ImportId"":""QID13""}","{""ImportId"":""QID81_0_GROUP""}","{""ImportId"":""QID81_1_GROUP""}","{""ImportId"":""QID81_G0_1_RANK""}","{""ImportId"":""QID81_G0_3_RANK""}","{""ImportId"":""QID81_G0_12_RANK""}","{""ImportId"":""QID81_G0_16_RANK""}","{""ImportId"":""QID81_G1_1_RANK""}","{""ImportId"":""QID81_G1_3_RANK""}","{""ImportId"":""QID81_G1_12_RANK""}","{""ImportId"":""QID81_G1_16_RANK""}","{""ImportId"":""QID77_FIRST_CLICK""}","{""ImportId"":""QID77_LAST_CLICK""}","{""ImportId"":""QID77_PAGE_SUBMIT""}","{""ImportId"":""QID77_CLICK_COUNT""}","{""ImportId"":""QID85_0_GROUP""}","{""ImportId"":""QID85_1_GROUP""}","{""ImportId"":""QID85_2_GROUP""}","{""ImportId"":""QID85_G0_1_RANK""}","{""ImportId"":""QID85_G0_2_RANK""}","{""ImportId"":""QID85_G0_3_RANK""}","{""ImportId"":""QID85_G0_4_RANK""}","{""ImportId"":""QID85_G0_5_RANK""}","{""ImportId"":""QID85_G0_6_RANK""}","{""ImportId"":""QID85_G1_1_RANK""}","{""ImportId"":""QID85_G1_2_RANK""}","{""ImportId"":""QID85_G1_3_RANK""}","{""ImportId"":""QID85_G1_4_RANK""}","{""ImportId"":""QID85_G1_5_RANK""}","{""ImportId"":""QID85_G1_6_RANK""}","{""ImportId"":""QID85_G2_1_RANK""}","{""ImportId"":""QID85_G2_2_RANK""}","{""ImportId"":""QID85_G2_3_RANK""}","{""ImportId"":""QID85_G2_4_RANK""}","{""ImportId"":""QID85_G2_5_RANK""}","{""ImportId"":""QID85_G2_6_RANK""}","{""ImportId"":""QID74_1""}","{""ImportId"":""QID74_2""}","{""ImportId"":""QID74_3""}","{""ImportId"":""QID74_4""}","{""ImportId"":""QID75_1""}","{""ImportId"":""QID75_2""}","{""ImportId"":""QID75_3""}","{""ImportId"":""QID75_4""}","{""ImportId"":""QID76_1""}","{""ImportId"":""QID76_2""}","{""ImportId"":""QID76_3""}","{""ImportId"":""QID76_4""}","{""ImportId"":""QID68_1""}","{""ImportId"":""QID68_2""}","{""ImportId"":""QID68_3""}","{""ImportId"":""QID68_4""}","{""ImportId"":""QID72_1""}","{""ImportId"":""QID72_2""}","{""ImportId"":""QID72_3""}","{""ImportId"":""QID72_4""}","{""ImportId"":""QID73_1""}","{""ImportId"":""QID73_2""}","{""ImportId"":""QID73_3""}","{""ImportId"":""QID73_4""}","{""ImportId"":""QID82_TEXT""}","{""ImportId"":""Random ID""}","{""ImportId"":""Shelter_Information""}","{""ImportId"":""Shelter_Type_1""}","{""ImportId"":""Shelter_Type_2""}","{""ImportId"":""Shelter_Type_3""}","{""ImportId"":""Shelter_Type_4""}"
+2022-10-26 20:07:49,2022-10-26 20:08:01,1,,100,11,1,2022-10-26 20:08:02,R_33mCioCTckNSZGT,,,,,32.926,-96.9666,preview,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-10-27 12:09:13,2022-10-27 12:10:21,1,,100,68,1,2022-10-27 12:10:22,R_2qdSGHcRqUEImtw,,,,,39.7321,-104.9555,preview,EN,,,,,,3,,,1,14,1,1,1,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-11-01 22:23:05,2022-11-01 22:24:46,1,,100,101,1,2022-11-01 22:24:47,R_3dW9lfz5ORnvnSJ,,,,,32.926,-96.9666,preview,EN,,,,,,1,,,1,3,1,1,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-11-06 08:42:31,2022-11-06 08:44:40,1,,100,128,1,2022-11-06 08:44:41,R_2TXCEm97FYojpvJ,,,,,32.926,-96.9666,preview,EN,,,,,,2,,,1,1,1,1,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-11-06 12:43:15,2022-11-06 12:44:13,1,,100,58,1,2022-11-06 12:44:13,R_25Efcf6MWE9FHpc,,,,,32.926,-96.9666,preview,EN,,,,,,2,,,1,2,1,1,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-11-06 12:45:11,2022-11-06 12:45:53,1,,100,41,1,2022-11-06 12:45:53,R_25L52ZX652wBS67,,,,,32.926,-96.9666,preview,EN,,,,,,2,,,1,2,1,1,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-11-06 12:46:13,2022-11-06 12:46:47,1,,100,34,1,2022-11-06 12:46:48,R_1N2mdZ9Bs12A86u,,,,,32.926,-96.9666,preview,EN,,,,,,2,,,1,1,1,1,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-11-06 13:02:15,2022-11-06 13:02:38,1,,100,22,1,2022-11-06 13:02:38,R_0uEAIROF1N51G3T,,,,,32.926,-96.9666,preview,EN,,,,,,2,,,1,1,1,1,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-11-06 13:02:47,2022-11-06 13:03:21,1,,100,33,1,2022-11-06 13:03:22,R_2qlQ1g2zaenmXwk,,,,,32.926,-96.9666,preview,EN,,,,,,1,,,1,2,1,1,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-11-06 13:06:07,2022-11-06 13:06:43,1,,100,36,1,2022-11-06 13:06:44,R_vJGhXd4PjKZZlQJ,,,,,32.926,-96.9666,preview,EN,,,,,,1,,,1,1,1,1,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-11-06 14:01:25,2022-11-06 14:01:45,1,,100,20,1,2022-11-06 14:01:46,R_3kv6CgQuvIxlKXK,,,,,32.926,-96.9666,preview,EN,,,,,,1,,,1,1,1,1,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-11-06 14:01:55,2022-11-06 14:02:17,1,,100,21,1,2022-11-06 14:02:18,R_2b2CTxuRwBxd2RM,,,,,32.926,-96.9666,preview,EN,,,,,,1,,,1,4,1,1,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-11-06 14:15:04,2022-11-06 14:15:36,1,,100,32,1,2022-11-06 14:15:37,R_3qkVEEYRFjMOZLd,,,,,32.926,-96.9666,preview,EN,,,,,,2,,,2,1,1,1,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-11-06 14:56:45,2022-11-06 14:57:40,1,,100,54,1,2022-11-06 14:57:40,R_ZdUPXtz5oBSS6sh,,,,,32.926,-96.9666,preview,EN,,,,,,1,,,1,1,1,1,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,6,9,9,,,,,,,,,,,,,,,
+2022-11-06 14:57:49,2022-11-06 14:58:13,1,,100,23,1,2022-11-06 14:58:13,R_2rdDEzaiYFqTEpb,,,,,32.926,-96.9666,preview,EN,,,,,,1,,,1,2,2,2,2,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-11-06 14:59:27,2022-11-06 15:00:01,1,,100,34,1,2022-11-06 15:00:02,R_RfvYvaBQE6e87XX,,,,,32.926,-96.9666,preview,EN,,,,,,1,,,2,1,1,1,2,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-11-06 15:00:35,2022-11-06 15:01:47,1,,100,71,1,2022-11-06 15:01:48,R_3PLXD0i71K5JC8u,,,,,32.926,-96.9666,preview,EN,,,,,,1,,,1,2,2,2,2,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6,8,2,3,,,,,,,,,,,
+2022-11-06 15:01:54,2022-11-06 15:02:47,1,,100,53,1,2022-11-06 15:02:48,R_3ExSYmHibOsBSSv,,,,,32.926,-96.9666,preview,EN,,,,,,1,,,1,2,2,2,2,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6,6,5,8,,,,,,,
+2022-11-06 15:02:55,2022-11-06 15:03:36,1,,100,41,1,2022-11-06 15:03:37,R_1GC9nU831RToT4s,,,,,32.926,-96.9666,preview,EN,,,,,,1,,,3,3,1,1,2,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,5,8,9,,,,,,,,,,,,,,,
+2022-11-06 15:39:59,2022-11-06 15:40:43,1,,100,43,1,2022-11-06 15:40:43,R_3R4W5GdA1tWz6vm,,,,,32.926,-96.9666,preview,EN,,,,,,7,,,2,1,1,3,2,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6,9,6,7,,,,,,,,,,,,,,,,,,,No,Shelter Type : NoKill Shelter,Shelter Type : Kill Shelter,Shelter Type : NoKill Shelter,Shelter Type : NoKill Shelter
+2022-11-07 12:29:31,2022-11-07 12:50:01,0,174.51.11.49,100,1229,1,2022-11-07 12:50:01,R_1jZ0EEb7PxFW5Pn,,,,,39.7628,-105.0263,anonymous,EN,,,,,,2,,,3,6,2,1,1,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,4,1,6,,,,,,,,,,,,,,,,,,,No,Shelter Type : Kill Shelter,Shelter Type : NoKill Shelter,Shelter Type : NoKill Shelter,Shelter Type : Kill Shelter
+2022-11-07 12:57:33,2022-11-07 13:04:28,0,174.51.11.49,100,414,1,2022-11-07 13:04:28,R_WoBt7mhJLIAU2lz,,,,,39.7628,-105.0263,anonymous,EN,,,,,,1,,,2,1,1,2,2,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,9,4,6,5,,,,,,,,,,,Yes,Shelter Type : NoKill Shelter,Shelter Type : NoKill Shelter,Shelter Type : Kill Shelter,Shelter Type : Kill Shelter
+2022-11-07 13:04:31,2022-11-07 13:06:33,0,174.51.11.49,100,122,1,2022-11-07 13:06:34,R_22xGJkd2Au2p3EO,,,,,39.7628,-105.0263,anonymous,EN,,,,,,5,,,1,5,1,2,2,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,8,9,9,9,,,,,,,,,,,,,,,,,,,,,,,No,Shelter Type : Kill Shelter,Shelter Type : Kill Shelter,Shelter Type : NoKill Shelter,Shelter Type : NoKill Shelter
+2022-11-07 13:11:10,2022-11-07 13:11:43,0,174.51.11.49,100,33,1,2022-11-07 13:11:44,R_9sJX9pw4rGlliRX,,,,,39.7628,-105.0263,anonymous,EN,,,,,,1,,,6,48,2,2,2,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,11,11,11,11,,,,,,,,,,,,,,,,,,,No,Shelter Type : NoKill Shelter,Shelter Type : Kill Shelter,Shelter Type : Kill Shelter,Shelter Type : Kill Shelter
+2022-11-07 21:58:16,2022-11-07 22:00:52,0,172.58.32.171,100,156,1,2022-11-07 22:00:53,R_3hGc3UCwHoEefpx,,,,,37.7585,-122.1856,anonymous,EN,,,,,,7,,,4,10,2,2,1,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,11,8,9,,,,,,,Yes,Shelter Type : Kill Shelter,Shelter Type : NoKill Shelter,Shelter Type : NoKill Shelter,Shelter Type : NoKill Shelter
+2022-11-07 22:00:59,2022-11-07 22:02:48,0,172.58.32.171,100,109,1,2022-11-07 22:02:48,R_248j4HYvKfPXHt1,,,,,37.7585,-122.1856,anonymous,EN,,,,,,3,,,5,9,1,1,2,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,10,4,9,,,,,,,,,,,,,,,No,Shelter Type : Kill Shelter,Shelter Type : Kill Shelter,Shelter Type : NoKill Shelter,Shelter Type : NoKill Shelter
+2022-11-07 22:03:02,2022-11-07 22:05:53,0,172.58.32.171,100,171,1,2022-11-07 22:05:54,R_ZLgHS8z5GKS7bEZ,,,,,37.7585,-122.1856,anonymous,EN,,,,,,2,,,1,11,2,3,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,10,6,11,7,,,,,,,,,,,Yes,Shelter Type : NoKill Shelter,Shelter Type : NoKill Shelter,Shelter Type : Kill Shelter,Shelter Type : Kill Shelter
+2022-11-07 22:06:03,2022-11-07 22:06:56,0,172.58.32.171,100,52,1,2022-11-07 22:06:56,R_263zwlYUEybAqYR,,,,,37.7585,-122.1856,anonymous,EN,,,,,,5,,,6,5,2,1,1,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,11,10,9,,,,,,,Yes,Shelter Type : NoKill Shelter,Shelter Type : Kill Shelter,Shelter Type : NoKill Shelter,Shelter Type : Kill Shelter
+2022-11-07 22:09:11,2022-11-07 22:10:11,0,172.58.32.171,100,59,1,2022-11-07 22:10:11,R_1CHMRBUEwDmrnnG,,,,,37.7585,-122.1856,anonymous,EN,,,,,,6,,,6,12,2,1,2,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,9,7,10,8,,,,,,,,,,,,,,,No,Shelter Type : Kill Shelter,Shelter Type : NoKill Shelter,Shelter Type : Kill Shelter,Shelter Type : NoKill Shelter
+2022-11-14 11:21:45,2022-11-14 11:22:37,1,,100,52,1,2022-11-14 11:22:38,R_C4tslRKrLVnqWfT,,,,,39.7845,-104.9642,preview,EN,,,,,,4,,,2,4,1,1,1,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,6,8,5,,,,,,,,,,,,,,,,,,396577,No,Traditional Shelter,Traditional Shelter,Traditional Shelter,No-Kill Shelter
+2022-11-14 11:29:49,2022-11-14 11:32:53,1,,100,184,1,2022-11-14 11:32:54,R_1n7S2xbNJLIjHeI,,,,,39.7845,-104.9642,preview,EN,,,,,,1,,,6,53,2,3,1,2,"3,12,13,17","2,1,14,16,15",,1,2,,2,,,4,131.452,131.452,131.724,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,5,5,4,,,,,,514840,Yes,No-Kill Shelter,No-Kill Shelter,Traditional Shelter,No-Kill Shelter
+2022-11-14 11:51:28,2022-11-14 11:51:59,1,,100,31,1,2022-11-14 11:52:00,R_3JJVDXi1mQuN55y,,,,,39.7845,-104.9642,preview,EN,,,,,,6,,,3,7,2,1,2,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,8,8,9,,,,,,,,,,,,,,,,,,430770,No,Traditional Shelter,Traditional Shelter,No-Kill Shelter,Traditional Shelter
+2022-11-14 11:52:06,2022-11-14 11:52:54,1,,100,48,1,2022-11-14 11:52:55,R_3lzzb6Lt5GBzcVy,,,,,39.7845,-104.9642,preview,EN,,,,,,3,,,3,3,2,2,1,1,"3,12,13,17","1,2,15,14,16",,1,2,,1,,,5,0,0,24.614,0,,,,,,,,,,,,,,,,,,,,,,2,7,5,5,,,,,,,,,,,,,,,,,,,,,,720246,No,No-Kill Shelter,No-Kill Shelter,Traditional Shelter,Traditional Shelter
+2022-11-14 12:07:21,2022-11-14 12:08:03,1,,100,41,1,2022-11-14 12:08:03,R_1LNCnLm6BXbauef,,,,,39.7845,-104.9642,preview,EN,,,,,,5,,,3,3,2,2,2,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,2,6,3,2,,,,,946499,946499,Yes,Traditional Shelter,Traditional Shelter,No-Kill Shelter,No-Kill Shelter
+2022-11-14 12:12:54,2022-11-14 12:14:31,1,,100,97,1,2022-11-14 12:14:32,R_1KexCX73T23u6y2,,,,,39.7845,-104.9642,preview,EN,,,,,,6,,,5,4,2,2,2,3,"3,12,17,13","1,15,2,16,14",,1,2,,1,,,4,0,0,64.348,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,14,13,19,16,test,954643,Yes,Traditional Shelter,No-Kill Shelter,No-Kill Shelter,No-Kill Shelter
+2022-11-14 12:21:20,2022-11-14 12:21:59,0,35.146.201.13,100,39,1,2022-11-14 12:21:59,R_1dFxSKojGzWAE3Z,,,,,32.8684,-96.9384,anonymous,EN,,,,,,1,,,1,7,2,2,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,3,6,5,,,,,,,,,,,,,,,,,,,,,,891812,No,No-Kill Shelter,Traditional Shelter,Traditional Shelter,Traditional Shelter
+2022-11-14 12:32:54,2022-11-14 12:35:49,0,104.175.0.154,100,175,1,2022-11-14 12:35:49,R_31nhl766kkibgeK,,,,,33.8515,-118.142,anonymous,EN,,,,,,6,,,6,5,1,1,1,1,"3,12,17,13","15,16,14,1,2",,1,2,,4,,,2,2.315,78.235,79.252,30,,,,,,,,,,,,,,,,,,,,,,10,8,9,7,,,,,,,,,,,,,,,,,,,,,,646097,No,No-Kill Shelter,Traditional Shelter,Traditional Shelter,No-Kill Shelter
+2022-11-14 12:38:16,2022-11-14 12:39:31,0,104.175.0.154,100,75,1,2022-11-14 12:39:31,R_2f6UHjqjv0BcJOP,,,,,33.8515,-118.142,anonymous,EN,,,,,,4,,,4,10,1,1,2,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,8,9,9,8,,,,,681742,681742,Yes,Traditional Shelter,No-Kill Shelter,No-Kill Shelter,Traditional Shelter
+2022-11-14 12:40:56,2022-11-14 12:41:39,0,35.146.201.13,100,43,1,2022-11-14 12:41:39,R_12lO4ovvg9tGykk,,,,,32.8684,-96.9384,anonymous,EN,,,,,,1,,,1,1,1,1,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4,7,7,6,,,,,,,,,,,,,,,,,,,,,,719798,No,No-Kill Shelter,No-Kill Shelter,No-Kill Shelter,Traditional Shelter
+2022-11-14 12:40:11,2022-11-14 12:41:46,0,104.175.0.154,100,95,1,2022-11-14 12:41:47,R_1o76MtZAUYzuRvK,,,,,33.8515,-118.142,anonymous,EN,,,,,,2,,,3,12,1,3,2,3,"13,12,17,3","16,15,14,1,2",,4,2,,4,,,1,0.698,26.359,27.548,11,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,18,18,19,19,811457,811457,Yes,Traditional Shelter,Traditional Shelter,Traditional Shelter,No-Kill Shelter
+2022-11-14 12:41:55,2022-11-14 12:42:47,0,104.175.0.154,100,51,1,2022-11-14 12:42:47,R_3HRA1C7BaY8rPTD,,,,,33.8515,-118.142,anonymous,EN,,,,,,6,,,4,9,1,1,1,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,9,9,9,10,,,,,,,,,,,,,,,,,,276791,No,Traditional Shelter,No-Kill Shelter,Traditional Shelter,Traditional Shelter
+2022-11-14 14:40:25,2022-11-14 14:44:34,0,35.146.201.13,100,248,1,2022-11-14 14:44:35,R_3jUIf0nwiQzDyFw,,,,,32.8684,-96.9384,anonymous,EN,,,,,,1,,,1,8,1,2,1,1,"12,17,13,3","16,14,15,2,1",,4,1,,5,,,1,0.84,107.422,113.789,35,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,44,43,46,44,,,,,,,,,392276,392275,Yes,No-Kill Shelter,Traditional Shelter,No-Kill Shelter,No-Kill Shelter
+2022-11-14 17:23:24,2022-11-14 17:24:08,0,184.96.129.117,100,44,1,2022-11-14 17:24:09,R_1f2iyWRR9fkpgvG,,,,,39.7318,-104.9669,anonymous,EN,,,,,,3,,,4,4,2,3,2,2,"3,13,17,12","1,16,14,15,2",,1,4,,1,,,2,0,0,17.249,0,,,,,,,,,,,,,,,,,,,,,,,,,,1,4,3,6,,,,,,,,,,,,,,,,,,745608,No,No-Kill Shelter,No-Kill Shelter,Traditional Shelter,Traditional Shelter
+2022-11-14 17:53:14,2022-11-14 17:54:34,0,184.96.129.117,100,80,1,2022-11-14 17:54:34,R_2bZbyRTVcQVzsAw,,,,,39.7318,-104.9669,anonymous,EN,,,,,,4,,,3,4,1,1,1,2,"3,13,12,17","15,2,16,14,1",,1,3,,5,,,3,0,0,16.765,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6,2,6,6,,,,,695906,695906,Yes,Traditional Shelter,No-Kill Shelter,No-Kill Shelter,Traditional Shelter
+2022-11-14 17:55:01,2022-11-14 17:55:35,0,184.96.129.117,100,33,1,2022-11-14 17:55:36,R_1j7K5JbpbsLIIhC,,,,,39.7318,-104.9669,anonymous,EN,,,,,,7,,,2,4,2,1,2,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,1,9,5,,,,,,,,,,,,,,,,,https://berkeley.qualtrics.com/jfe/form/SV_dm25M7SJoGuv4B8,526377,No,No-Kill Shelter,Traditional Shelter,Traditional Shelter,No-Kill Shelter
+2022-11-14 17:55:38,2022-11-14 17:56:32,0,184.96.129.117,100,54,1,2022-11-14 17:56:33,R_3m1siKcGO1gX5NJ,,,,,39.7318,-104.9669,anonymous,EN,,,,,,6,,,2,5,1,3,1,3,"3,13,17,12","16,15,14,1,2",,1,4,,4,,,1,0,0,17.567,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,5,9,3,10,,,,,,,,,,,,,878831,878831,No,Traditional Shelter,Traditional Shelter,No-Kill Shelter,No-Kill Shelter
+2022-11-14 18:04:46,2022-11-14 18:05:17,0,184.96.129.117,100,30,1,2022-11-14 18:05:18,R_1LuHjfxxaSiprfy,,,,,39.7318,-104.9669,anonymous,EN,,,,,,6,,,5,4,2,2,2,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,14,17,18,1,test,692151,Yes,No-Kill Shelter,No-Kill Shelter,Traditional Shelter,Traditional Shelter
+2022-11-14 18:05:20,2022-11-14 18:05:56,0,184.96.129.117,100,35,1,2022-11-14 18:05:56,R_2S3lz3wgkwKzIGQ,,,,,39.7318,-104.9669,anonymous,EN,,,,,,6,,,1,6,2,3,2,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6,10,2,8,,,,,,,,,,,,,925913,925913,No,No-Kill Shelter,No-Kill Shelter,No-Kill Shelter,No-Kill Shelter
+2022-11-14 18:06:04,2022-11-15 20:26:15,0,184.96.129.117,100,94810,1,2022-11-15 20:26:15,R_3luakOKvdGKZl0B,,,,,39.7318,-104.9669,anonymous,EN,,,,,,3,,,1,3,,1,2,2,"3,17,12,13","15,16,2,1,14",,1,3,,4,,,2,17.84,135.382,151.092,5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,6,4,6,8,,,,,177814,177814,Yes,Traditional Shelter,Traditional Shelter,Traditional Shelter,Traditional Shelter
+2022-11-15 20:26:36,2022-11-15 20:29:08,0,35.146.201.13,100,151,1,2022-11-15 20:29:08,R_2CeKyXrUwQz19Q9,,,,,32.8684,-96.9384,anonymous,EN,0.8999999761581421,,0,0,,1,2,2,1,1,3,1,1,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,5,3,3,,,,,,,,,,,,,,,,,870973,870973,No,No-Kill Shelter,Traditional Shelter,No-Kill Shelter,No-Kill Shelter
+2022-11-15 20:29:32,2022-11-15 20:30:21,0,184.96.129.117,100,48,1,2022-11-15 20:30:21,R_1n17docDuzeXfyr,,,,,39.7318,-104.9669,anonymous,EN,0.6000000238418579,true,100,0,2022-11-16 03:21:56,4,3,3,3,6,4,2,2,3,"12,3","1,16",,2,1,,1,,,2,0,0,9.472,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,14,15,17,13,802332,802332,Yes,Traditional Shelter,No-Kill Shelter,Traditional Shelter,Traditional Shelter
+2022-11-15 20:47:58,2022-11-15 20:48:56,0,35.146.201.13,100,57,1,2022-11-15 20:48:56,R_vVbaW1F2QfAR3bj,,,,,32.8684,-96.9384,anonymous,EN,0.8999999761581421,true,100,0,2022-11-16 03:27:46,1,1,1,1,1,3,1,1,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,3,5,2,2,,,,,630948,630948,Yes,Traditional Shelter,Traditional Shelter,No-Kill Shelter,No-Kill Shelter
+2022-11-15 20:50:17,2022-11-15 20:51:37,0,184.96.129.117,100,79,1,2022-11-15 20:51:37,R_1I62nATT6y0aIC0,,,,,39.7318,-104.9669,anonymous,EN,0.8999999761581421,true,100,0,2022-11-16 03:29:43,2,2,2,3,7,4,1,2,1,"3,12","16,1",,1,2,,2,,,1,0,0,7.559,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,42,44,44,43,,,,,,,,,118797,118797,Yes,Traditional Shelter,No-Kill Shelter,Traditional Shelter,No-Kill Shelter
+2022-11-15 20:57:11,2022-11-15 20:57:44,0,184.96.129.117,100,33,1,2022-11-15 20:57:45,R_3QXXPqdnhDs1o9d,,,,,39.7318,-104.9669,anonymous,EN,0.8999999761581421,true,100,0,2022-11-16 03:50:27,3,2,,2,7,4,2,1,3,"3,12","16,1",,1,2,,2,,,1,0,0,6.126,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,4,8,3,6,,,,,,,,,,,,,650194,650194,No,No-Kill Shelter,Traditional Shelter,No-Kill Shelter,Traditional Shelter
+2022-11-15 21:01:26,2022-11-15 21:02:15,0,35.146.201.13,100,48,1,2022-11-15 21:02:15,R_1QoA9LkabXeE0cy,,,,,32.8684,-96.9384,anonymous,EN,0.8999999761581421,true,100,0,2022-11-16 03:48:24,1,1,1,2,1,3,1,1,1,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,1,2,2,2,,,,,,,,,,,,,,,,,,,,,967156,967156,No,No-Kill Shelter,No-Kill Shelter,No-Kill Shelter,Traditional Shelter
+2022-11-16 16:28:55,2022-11-16 16:29:57,0,184.96.129.117,100,61,1,2022-11-16 16:29:58,R_3hlk0mL03kdTSbf,,,,,39.7318,-104.9669,anonymous,EN,0.8999999761581421,true,100,0,2022-11-16 03:57:18,2,2,2,3,2,4,1,2,1,"12,3","16,1",,2,1,,2,,,1,0,0,27.529,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,44,46,44,43,,,,,,,,,661720,661720,Yes,Traditional Shelter,Traditional Shelter,Traditional Shelter,No-Kill Shelter
+2022-11-16 16:46:43,2022-11-16 16:51:44,1,,100,301,1,2022-11-16 16:51:45,R_Xj0atIsRBtKb3QR,,,,,39.7318,-104.9669,preview,EN,0.8999999761581421,true,89,0,2022-11-16 23:29:07,3,2,2,5,6,5,1,2,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,16,19,13,18,,929579,Yes,No-Kill Shelter,No-Kill Shelter,Traditional Shelter,Traditional Shelter
+2022-11-16 16:51:55,2022-11-16 16:55:24,1,,100,208,1,2022-11-16 16:55:25,R_3Hib0kYDN6TNhYk,,,,,39.7318,-104.9669,preview,EN,0.8999999761581421,true,100,0,2022-11-16 23:48:16,7,1,1,6,4,3,2,2,2,"12,3","1,16",,2,1,,1,,,2,0,0,120.918,0,,,,,,,,,,,,,,,,,,,,,,,,,,8,7,4,1,,,,,,,,,,,,,,,,,,380842,No,Traditional Shelter,Traditional Shelter,No-Kill Shelter,No-Kill Shelter
+2022-11-17 21:05:03,2022-11-17 21:07:36,0,104.175.0.154,100,153,1,2022-11-17 21:07:37,R_31LrbjDtWxISqyQ,,,,,33.8515,-118.142,anonymous,EN,1,,0,0,,3,1,2,5,6,4,3,2,2,,,,,,,,,,,,,,,"5,1","2,4","6,3",2,,,,1,,,1,,2,,,,,2,,,1,,,,,8,6,9,5,,,,,,,,,,,,,,,,,384627,384627,No,No-Kill Shelter,No-Kill Shelter,Traditional Shelter,No-Kill Shelter
+2022-11-18 11:25:03,2022-11-18 11:25:57,0,184.96.129.117,100,53,1,2022-11-18 11:25:57,R_27y4FhkYp1Km7sg,,,,,39.8661,-104.9197,anonymous,EN,1,true,100,0,2022-11-16 23:52:07,3,2,2,4,7,4,2,1,3,"3,12","16,1",,1,2,,2,,,1,0,0,8.036,0,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,14,15,16,16,TEST_WRONG_#,528042,Yes,Traditional Shelter,Traditional Shelter,No-Kill Shelter,Traditional Shelter
+2022-11-18 11:26:20,2022-11-18 11:27:11,0,184.96.129.117,100,50,1,2022-11-18 11:27:11,R_escMAEyCXVtBcVX,,,,,39.8661,-104.9197,anonymous,EN,1,true,100,0,2022-11-18 18:25:14,3,2,,3,6,4,3,2,2,,,,,,,,,,,,,,,"1,5","2,4","6,3",1,,,,2,,,1,,2,,,,,2,,,1,,,,,3,3,8,3,,,,,,,,,,,,,,,,,390442,390442,No,Traditional Shelter,Traditional Shelter,Traditional Shelter,No-Kill Shelter

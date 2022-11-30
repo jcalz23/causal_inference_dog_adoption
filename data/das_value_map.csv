@@ -1,0 +1,90 @@
+field,string,value
+age_bin,Under 18 years,0
+age_bin,18-24 years old,1
+age_bin,25-34 years old,2
+age_bin,35-44 years old,3
+age_bin,45-54 years old,4
+age_bin,55-64 years old,5
+age_bin,65+ years old,6
+income_bin,"Less than $25,000",0
+income_bin,"$25,000-$49,999",1
+income_bin,"$50,000-$74,999",2
+income_bin,"$75,000-$99,999",3
+income_bin,"$100,000-$149,000",4
+income_bin,"$150,000 or more",5
+dog_size,Small (Less than 30 lbs.),0
+dog_size,Medium (Between 30-60 lbs.),1
+dog_size,Large (Greater than 60 lbs.),2
+shelter_tp,,0
+shelter_tp,Traditional Shelter,1
+shelter_tp,No-Kill Shelter,2
+gender,Female,0
+gender,Male,1
+gender,Other,2
+gender,Transgender,3
+marital,Married,0
+marital,Other,1
+marital,Single,2
+state,Alabama,0
+state,Alaska,1
+state,Arizona,2
+state,Arkansas,3
+state,California,4
+state,Colorado,5
+state,Connecticut,6
+state,Delaware,7
+state,District of Columbia,8
+state,Florida,9
+state,Georgia,10
+state,Hawaii,11
+state,I do not reside in the United States,12
+state,Idaho,13
+state,Illinois,14
+state,Indiana,15
+state,Iowa,16
+state,Kansas,17
+state,Kentucky,18
+state,Louisiana,19
+state,Maine,20
+state,Maryland,21
+state,Massachusetts,22
+state,Michigan,23
+state,Minnesota,24
+state,Mississippi,25
+state,Missouri,26
+state,Montana,27
+state,Nebraska,28
+state,Nevada,29
+state,New Hampshire,30
+state,New Jersey,31
+state,New Mexico,32
+state,New York,33
+state,North Carolina,34
+state,Ohio,35
+state,Oklahoma,36
+state,Oregon,37
+state,Pennsylvania,38
+state,Rhode Island,39
+state,South Carolina,40
+state,South Dakota,41
+state,Tennessee,42
+state,Texas,43
+state,Utah,44
+state,Vermont,45
+state,Virginia,46
+state,Washington,47
+state,West Virginia,48
+state,Wisconsin,49
+state,Wyoming,50
+own_dog,No,0
+own_dog,"No, but I own another pet",1
+own_dog,Yes,2
+dog_or_cat,Cats,0
+dog_or_cat,Dogs,1
+dog_or_cat,Neither dogs nor cats,2
+adopt_or_shop,I will adopt a dog,0
+adopt_or_shop,I will shop for a dog,1
+msg_treat_ind,No,0
+msg_treat_ind,Yes,1
+shelter_treat_bin,No,0
+shelter_treat_bin,Yes,1

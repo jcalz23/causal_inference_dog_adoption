@@ -1,0 +1,465 @@
+StartDate,EndDate,Status,IPAddress,Progress,Duration (in seconds),Finished,RecordedDate,ResponseId,RecipientLastName,RecipientFirstName,RecipientEmail,ExternalReference,LocationLatitude,LocationLongitude,DistributionChannel,UserLanguage,Q_RecaptchaScore,Q_RelevantIDDuplicate,Q_RelevantIDDuplicateScore,Q_RelevantIDFraudScore,Q_RelevantIDLastStartDate,Q34_First Click,Q34_Last Click,Q34_Page Submit,Q34_Click Count,Q2,Q27,Q28,Q3,Q4,Q35_First Click,Q35_Last Click,Q35_Page Submit,Q35_Click Count,Q7,Q8,Q9,Q10,Q21_First Click,Q21_Last Click,Q21_Page Submit,Q21_Click Count,Q25_0_GROUP,Q25_1_GROUP,Q25_0_1_RANK,Q25_0_3_RANK,Q25_0_12_RANK,Q25_0_16_RANK,Q25_1_1_RANK,Q25_1_3_RANK,Q25_1_12_RANK,Q25_1_16_RANK,Q30_First Click,Q30_Last Click,Q30_Page Submit,Q30_Click Count,Q29_0_GROUP,Q29_1_GROUP,Q29_2_GROUP,Q29_0_1_RANK,Q29_0_2_RANK,Q29_0_3_RANK,Q29_0_4_RANK,Q29_0_5_RANK,Q29_0_6_RANK,Q29_1_1_RANK,Q29_1_2_RANK,Q29_1_3_RANK,Q29_1_4_RANK,Q29_1_5_RANK,Q29_1_6_RANK,Q29_2_1_RANK,Q29_2_2_RANK,Q29_2_3_RANK,Q29_2_4_RANK,Q29_2_5_RANK,Q29_2_6_RANK,Q32_First Click,Q32_Last Click,Q32_Page Submit,Q32_Click Count,Q74_1,Q74_2,Q74_3,Q74_4,Q75_1,Q75_2,Q75_3,Q75_4,Q76_1,Q76_2,Q76_3,Q76_4,Q33_First Click,Q33_Last Click,Q33_Page Submit,Q33_Click Count,Small_1,Small_2,Small_3,Small_4,Medium_1,Medium_2,Medium_3,Medium_4,Large_1,Large_2,Large_3,Large_4,Q26,Random ID,Message_Received,Shelter_Information,Shelter_Type_1,Shelter_Type_2,Shelter_Type_3,Shelter_Type_4
+Start Date,End Date,Response Type,IP Address,Progress,Duration (in seconds),Finished,Recorded Date,Response ID,Recipient Last Name,Recipient First Name,Recipient Email,External Data Reference,Location Latitude,Location Longitude,Distribution Channel,User Language,Q_RecaptchaScore,Q_RelevantIDDuplicate,Q_RelevantIDDuplicateScore,Q_RelevantIDFraudScore,Q_RelevantIDLastStartDate,Timing - First Click,Timing - Last Click,Timing - Page Submit,Timing - Click Count,What is your age?,What is your gender?,What is your marital status?,What is your annual gross income in USD ?,"50 States, D.C. and Puerto Rico",Timing - First Click,Timing - Last Click,Timing - Page Submit,Timing - Click Count,Do you own a dog ?,Do you prefer dogs or cats ?,Would you rather shop for a dog or adopt a dog ?,What is your preferred dog size ?,Timing - First Click,Timing - Last Click,Timing - Page Submit,Timing - Click Count,Drag and drop the shelter characteristics to the appropriate group of shelter type : - Groups - Traditional Shelter,Drag and drop the shelter characteristics to the appropriate group of shelter type : - Groups - No-Kill Shelter,"Drag and drop the shelter characteristics to the appropriate group of shelter type : - Ranks - Traditional Shelter - Abstain from animal euthanization
+ - Rank","Drag and drop the shelter characteristics to the appropriate group of shelter type : - Ranks - Traditional Shelter - Accept and care for all animals
+ - Rank",Drag and drop the shelter characteristics to the appropriate group of shelter type : - Ranks - Traditional Shelter - Consider euthanizing ill or unadoptable animals - Rank,"Drag and drop the shelter characteristics to the appropriate group of shelter type : - Ranks - Traditional Shelter - Avoid and transfer responsibility for overcrowding to other shelters
+ - Rank","Drag and drop the shelter characteristics to the appropriate group of shelter type : - Ranks - No-Kill Shelter - Abstain from animal euthanization
+ - Rank","Drag and drop the shelter characteristics to the appropriate group of shelter type : - Ranks - No-Kill Shelter - Accept and care for all animals
+ - Rank",Drag and drop the shelter characteristics to the appropriate group of shelter type : - Ranks - No-Kill Shelter - Consider euthanizing ill or unadoptable animals - Rank,"Drag and drop the shelter characteristics to the appropriate group of shelter type : - Ranks - No-Kill Shelter - Avoid and transfer responsibility for overcrowding to other shelters
+ - Rank",Timing - First Click,Timing - Last Click,Timing - Page Submit,Timing - Click Count,Drag and drop the dog breeds into their appropriate size groups: - Groups - Small,Drag and drop the dog breeds into their appropriate size groups: - Groups - Medium,Drag and drop the dog breeds into their appropriate size groups: - Groups - Large,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Small - French BullDog - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Small - Australian Shepherd - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Small - German Shepherd - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Small - Shetland Sheepdog - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Small - Beagle - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Small - Labrador Retriever - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Medium - French BullDog - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Medium - Australian Shepherd - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Medium - German Shepherd - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Medium - Shetland Sheepdog - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Medium - Beagle - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Medium - Labrador Retriever - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Large - French BullDog - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Large - Australian Shepherd - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Large - German Shepherd - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Large - Shetland Sheepdog - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Large - Beagle - Rank,Drag and drop the dog breeds into their appropriate size groups: - Ranks - Large - Labrador Retriever - Rank,Timing - First Click,Timing - Last Click,Timing - Page Submit,Timing - Click Count,"For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Harry
+		
+		
+			Breed: Chihuahua
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Friendly, Affectionate, Gentle, Playful","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Opie
+		
+		
+			Breed: Terrier Mix
+		
+		
+			Gender: Male
+		
+		
+			
+			Character:  Funny, loves kisses, curious, couch potato","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Princess Pinky
+		
+		
+			Breed: Chihuahua and Terrier   Mix
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Affectionate, Loyal, Brave, Athletic, Protective, Dignified","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Pippa
+		
+		
+			Breed: Dachshund & Basenji Mix 
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Smart, Protective, Athletic, Loves Kisses, Funny","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Stanley
+		
+		
+			Breed: English Bulldog
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Friendly, Affectionate, Gentle, Playful","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Rocky
+		
+		
+			Breed: Pit Bull Terrier Mix
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Funny, loves kisses, curious, couch potato","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Retton
+		
+		
+			Breed: Terrier & Australian Kelpie Mix
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Affectionate, Loyal, Brave, Athletic, Protective, Dignified","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Nella
+		
+		
+			Breed: American Staffordshire  Terrier & Pit Bull Terrier Mix
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Smart, Protective, Athletic, Loves Kisses, Funny","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Damon
+		
+		
+			Breed: German Shepherd Dog & Labrador Retriever Mix
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Friendly, Affectionate, Gentle, Playful","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Violet
+		
+		
+			Breed: Labrador Retriever Mix & Black Labrador Retriever Mix 
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Funny, loves kisses, curious, couch potato","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Leia
+		
+		
+			Breed: Doberman Pinscher & German Shepherd Dog Mix
+		
+		
+			Gender:  Female
+		
+		
+			
+			Character: Affectionate, Loyal, Brave, Athletic, Protective, Dignified","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Victor
+		
+		
+			Breed: Mastiff Mix
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Friendly, Affectionate, Gentle, Playful, Curious, Quiet, Loves kisses",Timing - First Click,Timing - Last Click,Timing - Page Submit,Timing - Click Count,"For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely  
+
+
+
+10 - Extremely likely - Name: Harry
+  
+  
+   [Field-Shelter_Type_1]
+  
+  
+   Breed: Chihuahua
+  
+  
+   Gender: Male
+  
+  
+   
+   Character: Friendly, Affectionate, Gentle, Playful","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely  
+
+
+
+10 - Extremely likely - Name: Opie
+		
+		
+			[Field-Shelter_Type_2]
+		
+		
+			Breed: Terrier Mix
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Funny, loves kisses, curious, couch potato","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely  
+
+
+
+10 - Extremely likely - Name: Princess Pinky
+		
+		
+			[Field-Shelter_Type_3]
+		
+		
+			Breed: Chihuahua and Terrier   Mix
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Affectionate, Loyal, Brave, Athletic, Protective, Dignified","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+1 - Not at all likely  
+
+
+
+10 - Extremely likely - Name: Pippa
+		
+		
+			[Field-Shelter_Type_4]
+		
+		
+			Breed: Dachshund & Basenji Mix 
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Smart, Protective, Athletic, Loves Kisses, Funny","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Stanley
+		
+		
+			[Field-Shelter_Type_1]
+		
+		
+			Breed: English Bulldog
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Friendly, Affectionate, Gentle, Playful","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Rocky
+		
+		
+			[Field-Shelter_Type_2]
+		
+		
+			Breed: Pit Bull Terrier Mix
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Funny, loves kisses, curious, couch potato","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Retton
+		
+		
+			[Field-Shelter_Type_3]
+		
+		
+			Breed: Terrier & Australian Kelpie Mix
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Affectionate, Loyal, Brave, Athletic, Protective, Dignified","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Nella
+		
+		
+			[Field-Shelter_Type_4]
+		
+		
+			Breed: American Staffordshire  Terrier & Pit Bull Terrier Mix
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Friendly, Loyal, Playful, Smart, Curious, Independent, Loves kisses","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Damon
+		
+		
+			[Field-Shelter_Type_1]
+		
+		
+			Breed: German Shepherd Dog & Labrador Retriever Mix
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Friendly, Affectionate, Gentle, Playful","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Violet
+		
+		
+			[Field-Shelter_Type_2]
+		
+		
+			Breed: Labrador Retriever Mix & Black Labrador Retriever Mix 
+		
+		
+			Gender: Female
+		
+		
+			
+			Character: Funny, loves kisses, curious, couch potato","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Leia
+		
+		
+			[Field-Shelter_Type_3]
+		
+		
+			Breed: Doberman Pinscher & German Shepherd Dog Mix
+		
+		
+			Gender:  Female
+		
+		
+			
+			Character: Affectionate, Loyal, Brave, Athletic, Protective, Dignified","For the 4 dog profiles below, what would be your likelihood of acquiring each dog on a scale from 1-10?
+
+
+  1 - Not at all likely
+
+
+
+10 - Extremely likely - Name: Victor
+		
+		
+			[Field-Shelter_Type_4]
+		
+		
+			Breed: Mastiff Mix
+		
+		
+			Gender: Male
+		
+		
+			
+			Character: Friendly, Affectionate, Gentle, Playful, Curious, Quiet, Loves kisses","Here is your unique completion ID : [Field-Random%20ID]
+
+
+
+TO RECEIVE COMPENSATION, copy and paste this value into BOTH the below text box and ALSO into Mechanical Turk.
+
+
+
+When you have pasted the above ID into both locations, please click the next button to submit your survey.",Random ID,Message_Received,Shelter_Information,Shelter_Type_1,Shelter_Type_2,Shelter_Type_3,Shelter_Type_4
+"{""ImportId"":""startDate"",""timeZone"":""America/Denver""}","{""ImportId"":""endDate"",""timeZone"":""America/Denver""}","{""ImportId"":""status""}","{""ImportId"":""ipAddress""}","{""ImportId"":""progress""}","{""ImportId"":""duration""}","{""ImportId"":""finished""}","{""ImportId"":""recordedDate"",""timeZone"":""America/Denver""}","{""ImportId"":""_recordId""}","{""ImportId"":""recipientLastName""}","{""ImportId"":""recipientFirstName""}","{""ImportId"":""recipientEmail""}","{""ImportId"":""externalDataReference""}","{""ImportId"":""locationLatitude""}","{""ImportId"":""locationLongitude""}","{""ImportId"":""distributionChannel""}","{""ImportId"":""userLanguage""}","{""ImportId"":""Q_RecaptchaScore""}","{""ImportId"":""Q_RelevantIDDuplicate""}","{""ImportId"":""Q_RelevantIDDuplicateScore""}","{""ImportId"":""Q_RelevantIDFraudScore""}","{""ImportId"":""Q_RelevantIDLastStartDate"",""timeZone"":""UTC""}","{""ImportId"":""QID90_FIRST_CLICK""}","{""ImportId"":""QID90_LAST_CLICK""}","{""ImportId"":""QID90_PAGE_SUBMIT""}","{""ImportId"":""QID90_CLICK_COUNT""}","{""ImportId"":""QID2""}","{""ImportId"":""QID83""}","{""ImportId"":""QID84""}","{""ImportId"":""QID6""}","{""ImportId"":""QID8""}","{""ImportId"":""QID91_FIRST_CLICK""}","{""ImportId"":""QID91_LAST_CLICK""}","{""ImportId"":""QID91_PAGE_SUBMIT""}","{""ImportId"":""QID91_CLICK_COUNT""}","{""ImportId"":""QID10""}","{""ImportId"":""QID11""}","{""ImportId"":""QID12""}","{""ImportId"":""QID13""}","{""ImportId"":""QID77_FIRST_CLICK""}","{""ImportId"":""QID77_LAST_CLICK""}","{""ImportId"":""QID77_PAGE_SUBMIT""}","{""ImportId"":""QID77_CLICK_COUNT""}","{""ImportId"":""QID81_0_GROUP""}","{""ImportId"":""QID81_1_GROUP""}","{""ImportId"":""QID81_G0_1_RANK""}","{""ImportId"":""QID81_G0_3_RANK""}","{""ImportId"":""QID81_G0_12_RANK""}","{""ImportId"":""QID81_G0_16_RANK""}","{""ImportId"":""QID81_G1_1_RANK""}","{""ImportId"":""QID81_G1_3_RANK""}","{""ImportId"":""QID81_G1_12_RANK""}","{""ImportId"":""QID81_G1_16_RANK""}","{""ImportId"":""QID86_FIRST_CLICK""}","{""ImportId"":""QID86_LAST_CLICK""}","{""ImportId"":""QID86_PAGE_SUBMIT""}","{""ImportId"":""QID86_CLICK_COUNT""}","{""ImportId"":""QID85_0_GROUP""}","{""ImportId"":""QID85_1_GROUP""}","{""ImportId"":""QID85_2_GROUP""}","{""ImportId"":""QID85_G0_1_RANK""}","{""ImportId"":""QID85_G0_2_RANK""}","{""ImportId"":""QID85_G0_3_RANK""}","{""ImportId"":""QID85_G0_4_RANK""}","{""ImportId"":""QID85_G0_5_RANK""}","{""ImportId"":""QID85_G0_6_RANK""}","{""ImportId"":""QID85_G1_1_RANK""}","{""ImportId"":""QID85_G1_2_RANK""}","{""ImportId"":""QID85_G1_3_RANK""}","{""ImportId"":""QID85_G1_4_RANK""}","{""ImportId"":""QID85_G1_5_RANK""}","{""ImportId"":""QID85_G1_6_RANK""}","{""ImportId"":""QID85_G2_1_RANK""}","{""ImportId"":""QID85_G2_2_RANK""}","{""ImportId"":""QID85_G2_3_RANK""}","{""ImportId"":""QID85_G2_4_RANK""}","{""ImportId"":""QID85_G2_5_RANK""}","{""ImportId"":""QID85_G2_6_RANK""}","{""ImportId"":""QID88_FIRST_CLICK""}","{""ImportId"":""QID88_LAST_CLICK""}","{""ImportId"":""QID88_PAGE_SUBMIT""}","{""ImportId"":""QID88_CLICK_COUNT""}","{""ImportId"":""QID74_1""}","{""ImportId"":""QID74_2""}","{""ImportId"":""QID74_3""}","{""ImportId"":""QID74_4""}","{""ImportId"":""QID75_1""}","{""ImportId"":""QID75_2""}","{""ImportId"":""QID75_3""}","{""ImportId"":""QID75_4""}","{""ImportId"":""QID76_1""}","{""ImportId"":""QID76_2""}","{""ImportId"":""QID76_3""}","{""ImportId"":""QID76_4""}","{""ImportId"":""QID89_FIRST_CLICK""}","{""ImportId"":""QID89_LAST_CLICK""}","{""ImportId"":""QID89_PAGE_SUBMIT""}","{""ImportId"":""QID89_CLICK_COUNT""}","{""ImportId"":""QID68_1""}","{""ImportId"":""QID68_2""}","{""ImportId"":""QID68_3""}","{""ImportId"":""QID68_4""}","{""ImportId"":""QID72_1""}","{""ImportId"":""QID72_2""}","{""ImportId"":""QID72_3""}","{""ImportId"":""QID72_4""}","{""ImportId"":""QID73_1""}","{""ImportId"":""QID73_2""}","{""ImportId"":""QID73_3""}","{""ImportId"":""QID73_4""}","{""ImportId"":""QID82_TEXT""}","{""ImportId"":""Random ID""}","{""ImportId"":""Message_Received""}","{""ImportId"":""Shelter_Information""}","{""ImportId"":""Shelter_Type_1""}","{""ImportId"":""Shelter_Type_2""}","{""ImportId"":""Shelter_Type_3""}","{""ImportId"":""Shelter_Type_4""}"
+2022-11-19 09:35:02,2022-11-19 09:35:57,IP Address,174.234.0.95,100,54,True,2022-11-19 09:35:57,R_27lIWmpXhJopfKJ,,,,,39.7318,-104.9669,anonymous,EN,1,true,100,0,2022-11-19 16:18:22,10.174,13.71,14.682,9,Under 18 years,Female,Single,"$25,000-$49,999",Hawaii,2.348,4.381,7.601,6,"No, but I own another pet",Cats,I will adopt a dog,Large (Greater than 60 lbs.),,,,,"Accept and care for all animals
+,Consider euthanizing ill or unadoptable animals","Abstain from animal euthanization
+,Avoid and transfer responsibility for overcrowding to other shelters
+",,1,2,,1,,,2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,0.717,7.735,10.693,8,,,,,,,,,7,8,8,3,TEST,690005,Yes,Yes,Traditional Shelter,No-Kill Shelter,Traditional Shelter,No-Kill Shelter
