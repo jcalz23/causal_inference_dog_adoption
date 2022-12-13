@@ -1,0 +1,352 @@
+---
+title: "Dog Adoption Survey Results"
+author: "John Calzaretta, Aditya Mengani, Jesus Fernandex"
+date: "12/06/2022"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r install packages, message = FALSE}
+install.packages("lmtest")
+install.packages("sandwich")
+install.packages("AER")
+install.packages("patchwork")
+install.packages("stargazer")
+```
+
+```{r load packages, message = FALSE}
+library(stargazer)
+library(data.table)
+library(sandwich)
+library(lmtest)
+library(AER) 
+library(ggplot2) 
+library(patchwork)
+library(dplyr)
+```
+
+```{r}
+robust_se <- function(mod, type = 'HC3') { 
+  sqrt(diag(vcovHC(mod, type)))
+}
+```
+
+
+```{r load  data}
+d <- fread('../data/das_results_cleaned.csv')
+head(d)
+```
+
+```{r create treatment interation groupings}
+d$trtmnt_interaction <- ifelse(
+  (d$msg_treat_ind==1)&(d$shelter_tp==0), 4, ifelse(
+    (d$msg_treat_ind==1)&(d$shelter_tp==1), 5, ifelse(
+      (d$msg_treat_ind==1)&(d$shelter_tp==2), 6, ifelse(
+        (d$msg_treat_ind==0)&(d$shelter_tp==0),  1, ifelse(
+          (d$msg_treat_ind==0)&(d$shelter_tp==1), 2, 3)))))
+
+d$any_shelter_info_treat_ind <- ifelse(d$shelter_tp==0, 0, 1)
+d$clustered_treatments <- ifelse(
+  (d$msg_treat_ind==0)&(d$any_shelter_info_treat_ind==0), 1, ifelse(
+    (d$msg_treat_ind==0)&(d$any_shelter_info_treat_ind==1), 2, ifelse(
+      (d$msg_treat_ind==1)&(d$any_shelter_info_treat_ind==0), 3, 4)))
+```
+
+# Model 1: Clustered Message Treatment Alone
+```{r message treatment model, include=TRUE}
+model_msg_base <- d[ , lm(rating ~ factor(msg_treat_ind))]
+model_msg_covs<- d[ , lm(rating ~ factor(msg_treat_ind) +
+                              factor(age_bin) + 
+                              factor(gender) + 
+                              factor(marital) + 
+                              factor(income_bin) + 
+                              factor(own_dog) + 
+                              factor(dog_or_cat) + 
+                              factor(adopt_or_shop) + 
+                              factor(dog_size) + 
+                              factor(state) +
+                              duration
+                              )]
+
+stargazer(
+  model_msg_base,
+  model_msg_covs,
+  type = 'text', 
+  se = list(
+    vcovCL(model_msg_base),
+    vcovCL(model_msg_covs)
+  ), omit.stat = c('ser', 'F')
+)
+
+```
+
+## Model 2: No Shelter Info vs Some Shelter Info (Traditional/NK) Treatment Model
+```{r shelter info/no-info treatment model, include=TRUE}
+model_SI_base <- d[ , lm(rating ~ factor(shelter_treat_bin))]
+model_SI_covs<- d[ , lm(rating ~ factor(shelter_treat_bin) +
+                              factor(age_bin) + 
+                              factor(gender) + 
+                              factor(marital) + 
+                              factor(income_bin) + 
+                              factor(own_dog) + 
+                              factor(dog_or_cat) + 
+                              factor(adopt_or_shop) + 
+                              factor(dog_size) + 
+                              factor(state) +
+                              duration
+                              )]
+
+stargazer(
+  model_SI_base,
+  model_SI_covs,
+  type = 'text', 
+  se = list(
+    vcovCL(model_SI_base),
+    vcovCL(model_SI_covs)
+  ), omit.stat = c('ser', 'F')
+)
+
+```
+
+## Model 3: Interaction of Clustered Treatments (Message & Any Shelter Info)
+```{r shelter info/no-info treatment model, include=TRUE}
+clust_interaction_base <- d[ , lm(rating ~ factor(clustered_treatments))]
+clust_interaction_covs <- d[ , lm(rating ~ factor(clustered_treatments) +
+                              factor(age_bin) + 
+                              factor(gender) + 
+                              factor(marital) + 
+                              factor(income_bin) + 
+                              factor(own_dog) + 
+                              factor(dog_or_cat) + 
+                              factor(adopt_or_shop) + 
+                              factor(dog_size) + 
+                              factor(state) +
+                              duration
+                              )]
+
+stargazer(
+  clust_interaction_base,
+  clust_interaction_covs,
+  type = 'text', 
+  se = list(
+    vcovCL(clust_interaction_base),
+    vcovCL(clust_interaction_covs)
+  ), omit.stat = c('ser', 'F')
+)
+
+```
+
+## Model 4: Traditional Shelter vs. No-Kill Shelter Info
+```{r shelter type model, include=TRUE}
+d$shelter_nk_treat <- ifelse(d$shelter_tp==1, 0, 1)
+d_ao <- d %>%
+  group_by(ip) %>%
+  summarize(outcome_avg = mean(rating))
+d2 <- d %>%
+  filter(shelter_tp != 0) %>%
+  inner_join(d_ao, by="ip")
+
+trad_nk_base <- d2[ , lm(rating ~ factor(shelter_nk_treat))]
+trad_nk_covs <- d2[ , lm(rating ~ factor(shelter_nk_treat) +
+                              factor(age_bin) + 
+                              factor(gender) + 
+                              factor(marital) + 
+                              factor(income_bin) + 
+                              factor(own_dog) + 
+                              factor(dog_or_cat) + 
+                              factor(adopt_or_shop) + 
+                              factor(dog_size) + 
+                              factor(state) +
+                              duration
+                              )]
+trad_nk_fixed <- d2[ , lm(rating ~ factor(shelter_nk_treat) +
+                              factor(age_bin) + 
+                              factor(gender) + 
+                              factor(marital) + 
+                              factor(income_bin) + 
+                              factor(own_dog) + 
+                              factor(dog_or_cat) + 
+                              factor(adopt_or_shop) + 
+                              factor(dog_size) + 
+                              factor(state) +
+                              duration +
+                              outcome_avg
+                              )]
+
+stargazer(
+  trad_nk_base,
+  trad_nk_covs,
+  trad_nk_fixed,
+  type = 'text', 
+  se = list(
+    vcovCL(trad_nk_base),
+    vcovCL(trad_nk_covs),
+    vcovCL(trad_nk_fixed)
+  ), omit.stat = c('ser', 'F')
+)
+```
+
+
+
+
+# PHASE 1 MODELS: Treatment + Covariates (No Fixed Effects)
+
+```{r treatment interaction model, include=TRUE} 
+model_inter <- d[ , lm(rating ~ factor(trtmnt_interaction))]
+
+model_inter_some_covs <- d[ , lm(rating ~ factor(trtmnt_interaction) +
+                              factor(age_bin) + 
+                              factor(gender) + 
+                              factor(marital) + 
+                              factor(income_bin) +
+                              factor(own_dog) + 
+                              factor(dog_or_cat) + 
+                              factor(adopt_or_shop) + 
+                              factor(dog_size) 
+                              )]
+
+model_inter_all_covs<- d[ , lm(rating ~ factor(trtmnt_interaction) +
+                              factor(age_bin) + 
+                              factor(gender) + 
+                              factor(marital) + 
+                              factor(income_bin) + 
+                              factor(own_dog) + 
+                              factor(dog_or_cat) + 
+                              factor(adopt_or_shop) + 
+                              factor(dog_size) + 
+                              factor(state) +
+                              duration
+                              )]
+
+stargazer(
+  model_inter,
+  model_inter_some_covs,
+  model_inter_all_covs,
+  type = 'text', 
+  se = list(
+    robust_se(model_inter),
+    robust_se(model_inter_some_covs), 
+    robust_se(model_inter_all_covs)
+  ), omit.stat = c('ser', 'F')
+)
+
+```
+
+# PHASE 2: Add Fixed Effects
+```{r treatment interaction plus covariates model, include=TRUE} 
+model_inter_all_covs_fixed <- d[ , lm(rating ~ factor(trtmnt_interaction) +
+                              factor(age_bin) + 
+                              factor(gender) + 
+                              factor(marital) + 
+                              factor(income_bin) + 
+                              factor(own_dog) + 
+                              factor(dog_or_cat) + 
+                              factor(adopt_or_shop) + 
+                              factor(dog_size) + 
+                              factor(state) + 
+                              duration +
+                              factor(ip)
+                              )]
+
+model_inter_fixed <- d[ , lm(rating ~ factor(trtmnt_interaction) + factor(ip))]
+
+d_ao <- d %>%
+  group_by(ip) %>%
+  summarize(outcome_avg = mean(rating))
+d2 <- inner_join(d, d_ao, by="ip")
+
+model_avg_outcomes <- d2[ , lm(rating ~ factor(trtmnt_interaction) +
+                              factor(age_bin) + 
+                              factor(gender) + 
+                              factor(marital) + 
+                              factor(income_bin) + 
+                              factor(own_dog) + 
+                              factor(dog_or_cat) + 
+                              factor(adopt_or_shop) + 
+                              factor(dog_size) + 
+                              factor(state) +
+                              outcome_avg
+                              )]
+
+stargazer(
+  model_inter_all_covs,
+  model_inter_all_covs_fixed,
+  model_inter_fixed,
+  model_avg_outcomes,
+  type = 'text', 
+  se = list(
+    robust_se(model_inter_all_covs),
+    robust_se(model_inter_all_covs_fixed), 
+    robust_se(model_inter_fixed),
+    robust_se(model_avg_outcomes)
+  ), 
+  omit.stat = c('ser', 'F')
+)
+
+```
+
+## Phase 3: COVARIATE BALANCE TEST
+```{r}
+model_benchmark <- d[ , lm(msg_treat_ind ~ 1)]
+model_cov <- d[ , lm(msg_treat_ind ~ factor(income_bin))]
+
+res <- coeftest(model_cov, vcovHC)
+print(res)
+
+print(anova(model_benchmark, model_cov))
+```
+
+
+
+
+
+## SAVE FOR FORMATTING
+```{r}
+
+stargazer(
+  model_inter,
+  model_inter_some_covs,
+  model_inter_all_covs,
+  type = 'text', 
+  se = list(
+    robust_se(model_inter), 
+    robust_se(model_inter_some_covs), 
+    robust_se(model_inter_all_covs)
+  ), 
+  omit.stat = c('ser', 'F'),
+  title="Regression Results", 
+  align=TRUE,
+  dep.var.labels="Rating",
+  covariate.labels=c("No Message + Traditional Shelter Type",
+                     "No Message + No-Kill Shelter Type",
+                     "Message + No Shelter Info",
+                     "Message + Traditional Shelter Type",
+                     "Message + No-Kill Shelter Type",
+                     "Age 18-24",
+                     "Age 25-34",
+                     "Age 35-44",
+                     "Age 45-54",
+                     "Age 55-64",
+                     "Age 65+", 
+                     "Male",
+                     "Transgender",
+                     "Other Gender",
+                     "In Relationship",
+                     "Single",
+                     "Income 25k-50k",
+                     "Income 50k-75k",
+                     "Income 75k-100k",
+                     "Income 100k-150k",
+                     "Income 150k+",
+                     "Own Pet, Non-Dog",
+                     "Own Dog",
+                     "Prefers Dogs",
+                     "No Pet Preference",
+                     "Prefers Shopping for Dogs",
+                     "Prefers Medium Dogs",
+                     "Prefers Large Dogs"
+                     )
+)
+```
+

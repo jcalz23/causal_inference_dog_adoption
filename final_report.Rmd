@@ -1,0 +1,385 @@
+---
+title: "Mitigating the Dog Shelter Overcrowding Problem"
+author: "John Calzaretta, Aditya Mengani, Jesus Fernandez"
+date: "12/13/2022"
+output: 
+  pdf_document: default
+---
+
+```{r global options, include = FALSE}
+knitr::opts_chunk$set(include = FALSE, message = FALSE, warning = FALSE )
+
+knitr::knit_engines$set(problem_description = function(options) {
+  code <- paste(options$code, collapse = "\n")
+})
+```
+
+```{r package loads, warning=FALSE, message=FALSE}
+library(stargazer)
+library(data.table)
+library(sandwich)
+library(lmtest)
+library(AER) 
+library(ggplot2) 
+library(patchwork)
+library(dplyr)
+```
+
+[Link to Github](https://github.com/jcalz23/causal_inference_dog_adoption)
+
+# Introduction
+## Motivation
+The magnitude of the dog abandonment problem in the United States is not commonly known or discussed. Each year, around 3.1 million dogs enter U.S. animal shelters. Despite this mass abandonment, only around 23% of all dogs are acquired from the shelters while ~2 million new puppies continue to be bred and sold by puppy mills and backyard breeders annually. The joint effect of mass abandonment and mass breeding lead to a shelter overcrowding problem in the U.S. that unfortunately results in the euthanization of ~400,000 dogs annually. 
+
+The euthanization process further creates tension within the animal shelter community. No-Kill animal shelters refuse to perform euthanization, but conversely must close their doors to new animals when at capacity, forcing owners to seek Traditional shelters or the street. On the other side, Traditional animal shelters absorb the responsibility for handling the overcrowding problem by euthanizing old and sick dogs to create shelter space for younger and healthier abandoned dogs. According to research and interviews with shelter employees, the average citizen knows little about the distinction between shelter types and typically favors the virtuous name “No-Kill”.
+
+## Research Goals and Hypotheses
+This research attempts to understand the average American’s sentiment toward shelter dog adoption and discover potential tools for shelters to increase their adoption rates. In this paper we explore the effect of providing educational materials on the shelter overcrowding problem on people’s willingness to adopt a shelter dog. In the process, we also hope to understand if educating participants on the distinction between No-Kill and Traditional shelters changes their preference as to which shelter type they would adopt from. We hypothesize that participants will be more likely to adopt a dog after receiving educational content on the overcrowding problem. Additionally, we hypothesize that participants who receive the educational message and also the dog’s shelter type label will have increased sympathy towards Traditional shelter dogs.
+
+# Design
+This experiment is conducted through a Qualtrics survey hosted on Amazon Mechanical Turk (MTurk). Before treatment and measurement, the survey begins by collecting both demographic and pet preference information on each participant. The covariates collected are shown in Figure 1, along with the range of possible values.
+
+![Covariate Definitions](~/causal_inference_dog_adoption/images/cov_table.png)
+
+This research applies both clustered and non-clustered treatments, breaking the analysis into two different experiments. The distinction between clustered and non-clustered treatments is important because each participant provides ratings for four different dog profiles. The clustered treatments are those which apply across all four dogs; the non-clustered treatments are those which are administered at the individual dog level.
+
+The first treatment is the Educational Message, which is clustered because once the participant reads the message, that treatment will apply to each dog profile. The respondents that are assigned to the treatment group will read a short message with statistics of the dog overcrowding problem as well as a comparison between Traditional and No-Kill shelters. To reduce the risk of noncompliance, respondents in the treatment group must complete a knowledge check by dragging and dropping some of the information provided into the correct shelter type grouping. Figure 2 shows the message treatment and attention check as displayed in the Qualtrics survey.
+
+![Educational Message Treatment](~/causal_inference_dog_adoption/images/message_treat.png)
+
+The respondents assigned to the control group receive a placebo message and will also be presented with an attention check in order to avoid differential attrition. The purpose of this placebo message is to reduce attrition since it is more likely that a person in the treatment group will stop taking the survey once they are presented with the message and attention check. Figure 3 shows the control group placebo message and attention check.
+
+![Placebo Message Treatment](~/causal_inference_dog_adoption/images/ctrl_msg.png){width=80%}
+
+Once the respondents have reviewed the material provided and have answered the attention check questions correctly, they will be presented with the four dog profiles. Depending on the second (clustered) treatment assignment, the participant will either receive “Some Shelter Information” for each dog, or “No Shelter Information” for each dog. This treatment is clustered because participants that receive some shelter information will receive a shelter label for each of the four dogs, and those in the control group receive no shelter information for each dog. The third, non-clustered treatment is the random labeling of No-Kill or Traditional shelter type for each dog - this applies only to the “Some Shelter Information” group in the second treatment. This treatment is non-clustered because each of the four dogs can have a different shelter label despite being presented to a single participant. Another important distinction is that the same four dogs are shown to each participant in the same dog size preference group (Small, Medium, Large). The actual shelter location is not known for these dogs, but instead the shelter labels are randomly assigned to the dog if applicable. Figure 4 shows the same dog profile appearance for each possible shelter type treatment.
+
+![Princess Pinky Shelter Types](~/causal_inference_dog_adoption/images/pinky.png){width=50%}
+
+Given each participant’s treatment assignment, each will see a set of 4 dog profiles and answer the question: 
+
+***For each of the 4 dog profiles, what would be your likelihood of acquiring this dog on a scale 1 (low) - 10 (high)?***
+
+Following the survey execution, this outcome measure will be modeled using two sets of regressions that account for the clustered and non-clustered treatments separately. One set of models will explore the causal effects of the clustered treatments (message vs. no message, and any shelter information vs. no shelter information). For the non-clustered treatment (Traditional vs. No-Kill shelter label), we will filter the sample to only those participants in the Any Shelter Information group and then fit models that include fixed effects.
+
+# Randomization
+As previously discussed, the experiment included three different treatments. Each treatment split the sample using 50/50 random assignment. The randomization was handled by Qualtrics, which keeps a count of the participants in each treatment group and perfectly switches off assigning people to control, then treatment. This is a bit different than a perfect randomization function because it always maintains a 1-for-1 control-treatment assignment count; however, we assume that the sequence of participants is entirely independent and thus the 1-for-1 assignment is random. Figure 5 shows the distribution of assignment across the two clustered treatments.
+
+![Clustered Treatment Assignment](~/causal_inference_dog_adoption/images/clust_random.png){width=50%}
+
+The third, non-clustered treatment is applied to the 50% of the original sample that belongs to the *Some Shelter Info* group. For each participant in this group, each of the four dog profiles shown has a 50/50 random assignment of the *No-Kill* and *Traditional* shelter types. Figure 6 pictorially represents the flow of survey and three levels of randomization highlighted in colors as part of the experimental design.
+
+![Survey Flow Chart](~/causal_inference_dog_adoption/images/survey_flow.png){width=75%}
+
+# Sample Selection
+A total of 875 participants were recruited in this experiment using the Amazon Mechanical Turk (AMT) platform. The actual survey was designed and developed in the Qualtrics platform and was exposed as a web service using a URL. Furthermore, this URL was embedded into the Amazon Mturk platform to be crowd-sourced to participants of the survey. On successful completion of the survey the participants received $0.40 cents for successful survey participation and completion. The requirements to participate in the survey include: owning an AMT worker account, living in the United States, and having successfully completed at least 3 previous surveys successfully. This entire set up was controlled and monitored by using an admin requester account in AMT. Figure 7 shows the AMT process flow for requesters and workers.
+
+![MTurk User Journey](~/causal_inference_dog_adoption/images/mturk_flow.png){width=50%}
+
+# Results & Analysis
+In this analysis, we will first discuss summary findings of exploratory data analysis, and then define, display, and discuss the results of each model fit on survey outcomes.
+
+## Summary of Rating Outcomes
+The histogram below shows the sample distribution of the experiment outcom: dog ratings.
+```{r histogram, echo=FALSE, out.width="50%", include=TRUE}
+d <- fread('~/causal_inference_dog_adoption/data/das_results_cleaned.csv')
+mean_rating <- round(mean(d$rating), 2)
+sd_rating <- round(sd(d$rating), 2)
+
+d %>%
+  group_by(rating) %>% 
+  summarize(count = n())  %>%
+  ggplot(aes(x=rating, y=count)) + geom_bar(stat='identity') + 
+  geom_vline(aes(xintercept=mean(rating)),
+            color="blue", linetype="dashed", size=1) +
+  labs(title='Distribution of Dog Ratings', x='Rating', y='Count') +
+  scale_x_discrete(limits=c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")) +
+  theme(plot.title = element_text(hjust = 0.5))
+
+```
+
+The dog rating outcome has a mean of `r mean_rating` and standard deviation of `r sd_rating`.
+
+The tables below show the mean rating by treatment group for each of the three treatments.
+```{r treatment means, echo=FALSE, include=TRUE}
+d$msg_treat_str <- ifelse(d$msg_treat_ind==1, "Message", "No Message")
+d$any_SI_treat <- ifelse(d$shelter_tp==0, "No Shelter Info", "Some Shelter Info")
+
+d$clustered_treatment_inter <- ifelse(
+  (d$msg_treat_ind==0)&(d$any_SI_treat=="No Shelter Info"), "No Message, No Shelter Info", ifelse(
+    (d$msg_treat_ind==0)&(d$any_SI_treat=="Some Shelter Info"), "No Message, Some Shelter Info", ifelse(
+      (d$msg_treat_ind==1)&(d$any_SI_treat=="No Shelter Info"), "Message, No Shelter Info", 
+      "Message, Some Shelter Info")))
+
+d$shelter_nk_treat <- ifelse(d$shelter_tp==1, "Traditional Shelter", "No-Kill Shelter")
+
+# Group by message v no message
+d %>% 
+  group_by(msg_treat_str) %>%
+  summarize(count=n(), mean_rating = mean(rating))
+
+# Group by shelter_type
+d %>% 
+  group_by(any_SI_treat) %>%
+  summarize(count=n(), mean_rating = mean(rating))
+
+# Group by shelter type (excluding none)
+d %>% 
+  filter(shelter_tp != 0) %>%
+  group_by(shelter_nk_treat) %>%
+  summarize(count=n(), mean_rating = mean(rating))
+```
+Each treatment group has a mean rating rather close to the sample mean (`r mean_rating`). When splitting by the Message treatment or Any Shelter Information treatment, the treated group has a slightly higher mean rating than no message. When splitting by the Shelter Label treatment, the Traditional shelter group has a slightly higher mean rating.
+
+## Summary of Sample Covariates
+Ideally, our experiment would attract a representation of the United States adult population. Figure 8 below shows the summary distribution of our sample across the some key covariates measured. The following histograms show the distributions of participant age and income.
+
+![Covariate Means](~/causal_inference_dog_adoption/images/cov_means.png){width=50%}
+```{r age and income histograms, echo=FALSE, out.width="50%", include=TRUE}
+d %>%
+  group_by(age_bin) %>% 
+  summarize(count = n())  %>%
+  ggplot(aes(x=age_bin, y=count)) + geom_bar(stat='identity') + 
+  labs(title='Age Distribution', x='Age Bin', y='Count') +
+  theme(plot.title = element_text(hjust = 0.5)) 
+
+d %>%
+  group_by(income_bin) %>% 
+  summarize(count = n())  %>%
+  ggplot(aes(x=income_bin, y=count)) + geom_bar(stat='identity') +
+  labs(title='Income Distribution', x='Income Bin', y='Count') +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+In terms of demographic features, the sample is majority Male, Married, younger-adult (25-45), and earn income between $25k-75k. For the “Pet Profile” features collected, a key finding is that 97% of the sample reportedly owns a dog. This is likely a result of including the word “Dog” in the Mechanical Turk survey posting, and results in a biased sample that cannot be said to represent the United States adult population. Given the sample description above, the findings of our analysis can only be said to apply to married dog owners in the United States.
+
+Qualtrics enabled the collection of survey duration for each participant. The charts below show the distribution of survey duration by participant in minutes and also the relationship between duration (in seconds) and dog rating.
+
+```{r duration, echo=FALSE, out.width="50%", include=TRUE}
+d$duration_bin <- round(d$duration/60)
+
+d %>%
+  ggplot(aes(x=duration_bin)) + geom_histogram() +
+  scale_x_continuous(breaks = round(seq(min(d$duration_bin), max(d$duration_bin), by = 1),1)) +
+  labs(title='Duration Distribution', x='Duration (Minutes)', y='Count') +
+  theme(plot.title = element_text(hjust = 0.5))
+
+d %>%
+  ggplot(aes(x=duration, y=rating)) + 
+  geom_point(position = "jitter") +
+  geom_smooth(method = "lm", alpha = .15) +
+  labs(title='Ratings vs. Duration', x='Duration (Seconds)', y='Rating') +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Though we anticipated the average survey duration would be around 5 minutes, the majority of participants completed the survey in 3 minutes or less. This likely speaks to a flaw in the use of Mechanical Turk for sourcing our sample, as these participants are incentivized to speed through the survey and move to the next one. The scatterplot above shows how there is a slight, positive relationship between duration and ratings. If we were to find a sample that spent more time on the survey, and paid closer attention we would expect more thoughtful and intentional ratings.
+
+## Modeling Approach
+As described in the design section, our analysis is split into a clustered and non-clustered treatment analysis.
+
+### Clustered Treatment Models
+The clustered treatments include the *Educational Message* treatment and the *Some Shelter Information* treatment. The models developed investigate the pooled effects of each treatment individually, as well as the interaction of the two clustered treatments. Each model includes all demographic and pet preference covariates, uses clustered standard errors and does not include fixed effects at the participant level. We experimented with modeling on a subset of covariates for each treatment, but the models including all covariates return the highest R-Squared and lowest standard errors. The model forms are shown in the code snippet below and the results are discussed in the Results section.
+
+```{r wranlging, include=FALSE}
+d$any_SI_treat <- ifelse(d$shelter_tp==0, 0, 1)
+d$clustered_treatment_inter <- ifelse(
+  (d$msg_treat_ind==0)&(d$any_SI_treat==0), 1, ifelse(
+    (d$msg_treat_ind==0)&(d$any_SI_treat==1), 2, ifelse(
+      (d$msg_treat_ind==1)&(d$any_SI_treat==0), 3, 4)))
+```
+
+```{r clustered treatment models, out.width="50%", echo=TRUE, include=TRUE}
+model_msg_covs<- d[ , lm(rating ~ factor(msg_treat_ind) +
+                              factor(age_bin) + 
+                              factor(gender) + 
+                              factor(marital) + 
+                              factor(income_bin) + 
+                              factor(own_dog) + 
+                              factor(dog_or_cat) + 
+                              factor(adopt_or_shop) + 
+                              factor(dog_size) + 
+                              factor(state) +
+                              duration
+                              )] # no fixed effects
+
+model_SI_covs<- d[ , lm(rating ~ factor(any_SI_treat) +
+                              factor(age_bin) + 
+                              factor(gender) + 
+                              factor(marital) + 
+                              factor(income_bin) + 
+                              factor(own_dog) + 
+                              factor(dog_or_cat) + 
+                              factor(adopt_or_shop) + 
+                              factor(dog_size) + 
+                              factor(state) +
+                              duration
+                              )] # no fixed effects
+
+clust_interaction_covs <- d[ , lm(rating ~ factor(clustered_treatment_inter) +
+                                    factor(age_bin) + 
+                                    factor(gender) + 
+                                    factor(marital) + 
+                                    factor(income_bin) + 
+                                    factor(own_dog) + 
+                                    factor(dog_or_cat) + 
+                                    factor(adopt_or_shop) + 
+                                    factor(dog_size) + 
+                                    factor(state) +
+                                    duration
+                                    )] # no fixed effects
+
+```
+
+### Non-Clustered Treatment Models
+The non-clustered treatments apply onto the *Some Shelter Information* treatment group and include the *Shelter Type* treatment (Traditional vs. No-Kill shelters). Given a single treatment, the model is simple and regresses the rating outcome on the shelter type treatment. We evaluate the effect of including no covariates, some covariates, and all covariates. We also explore the use of participant fixed effects (average rating) in models. The model forms are shown in the code snippet below and the results are discussed in the Results section.
+
+```{r data wrangling, include=FALSE, echo=FALSE}
+# Filter out any participants with no shelter info
+d$shelter_nk_treat <- ifelse(d$shelter_tp==1, 0, 1)
+
+# Create average outcome covariate
+d_ao <- d %>%
+  group_by(ip) %>%
+  summarize(outcome_avg = mean(rating))
+d2 <- d %>%
+  filter(shelter_tp != 0) %>%
+  inner_join(d_ao, by="ip")
+```
+
+```{r non-clustered models, out.width="50%", echo=TRUE, include=TRUE}
+trad_nk_base <- d2[ , lm(rating ~ factor(shelter_nk_treat))]
+trad_nk_fixed_some <- d2[ , lm(rating ~ factor(shelter_nk_treat) +
+                              factor(age_bin) + 
+                              factor(gender) + 
+                              factor(marital) + 
+                              factor(income_bin) + 
+                              factor(own_dog) + 
+                              factor(dog_or_cat) + 
+                              factor(adopt_or_shop) + 
+                              factor(dog_size) + 
+                              outcome_avg # <---- added fixed effects
+                              )]
+trad_nk_fixed_all <- d2[ , lm(rating ~ factor(shelter_nk_treat) +
+                              factor(age_bin) + 
+                              factor(gender) + 
+                              factor(marital) + 
+                              factor(income_bin) + 
+                              factor(own_dog) + 
+                              factor(dog_or_cat) + 
+                              factor(adopt_or_shop) + 
+                              factor(dog_size) + 
+                              factor(state) + # <---- added covariate
+                              duration +  # <---- added covariate
+                              outcome_avg # <---- added fixed effects
+                              )]
+```
+
+# Results
+## Clustered Treatment Results
+
+![Clustered Treatment Models](~/causal_inference_dog_adoption/images/clustered_results.png){width=50%}
+
+Figure 9 shows a snippet of the clustered treatment model results (for full list of covariates, see Appendix). In summary, each model produces statistically significant treatment coefficients, but all are very small on the 10-point rating scale and do not provide much practical significance. Model 1 shows that, contrary to our hypothesis, when participants receive the educational message they are likely to rate the dog slightly lower. We expected the educational message would increase sympathy and thus ratings; however, the message may have frustrated time-intensive AMT users and potentially lowered ratings. Model 2 shows that giving the participant some shelter information (whether Traditional or No-Kill labels) slightly increases the average dog rating. We hypothesized that this treatment would have the same direction, but a larger magnitude than shown in models. The clustered treatment interaction model (#3), does not provide any large covariates on the rating scale but it does show that participants who received the message but no shelter information were likely to rate dogs lower than any other treatment interaction. The holdout interaction treatment is the *No Message*, *No Shelter Information* group which yields the highest dog ratings on average, contrary to our hypotheses. The R-Squared does not change much across models, and the value of 0.16 shows that these treatments and covariates do not explain much of the variance in ratings. See the Appendix for the full table of covariate coefficients and clustered standards errors.
+
+## Non-Clustered Treatment Results
+
+![Non-Clustered Treatment Models](~/causal_inference_dog_adoption/images/non_clust_results.png){width=50%}
+
+Figure 10 shows a snippet of the non-clustered treatment model results (for full list of covariates, see Appendix). In summary, the No-Kill shelter type produces statistically significant, but very small and negative treatment coefficients. This means that for those participants that received *some shelter information*, those dogs that were labeled as *Traditional Shelter* dogs received slightly higher ratings on average. We are unable to investigate the interaction of the shelter type treatment with the message treatment due to inconsistencies in the treatment design (clustered vs. non-clustered), but if we were to re-do this assignment it might validate our hypothesis that additional education may shift sympathy from No-Kill to Traditional shelters. Currently, we can only conclude that Traditional shelter dogs received slightly higher ratings than No-Kill shelter dogs on average. The models that include the fixed effects (average rating) at the participant level have much higher R2 (from 0.0003 to 0.702). Model 2, which excludes the State and Duration covariates has lower standard errors and a slightly higher adjusted R2.
+
+# Conclusion
+In summary, our research attempted to find educational treatments that may increase a person's likelihood of adopting a shelter dog. After collecting a sample of 875 participants and 4 ratings per participant, we developed regression models to evaluate the effectiveness of each of 3 treatments. Ultimately, the models produced statistically significant treatment coefficients, but did not return any treatment coefficients of practical significance due to the small size of coefficients.
+
+In future work, there are a few changes to both our treatment assignment logic and sample selection process that would have enabled a more nuanced and informative analysis. Upon reflection, we should have only used clustered treatments and not any non-clustered treatments so that we can understand the interaction of each treatment type. We could have also collected more ratings per participant and more participants by lowering our MTurk payment price. Although MTurk is a great platform to randomize our survey and receive feedback quickly, it is important to note that MTurk users tend to focus on submitting as many surveys as possible to increase their payout. With more time and resources, it would be helpful to see how the results might differ if the sample was recruited through social media ads. Additionally, we mostly attracted existing dog owners and it would be helpful to target the population that is most likely to make a difference in the shelter overcrowding problem: people who are thinking of acquiring a dog, and people who are thinking of putting a dog up for adoption. One way of doing this is to have a screening questionnaire where users are disqualified before the experiment begins if they are already more likely to adopt dogs. Hopefully, future research can better identify treatments and target groups that are more likely to combat the animal overcrowding and euthanasia problems.
+
+
+# Appendix
+## Clustered Treatment Results
+```{r clustered results, echo=FALSE, include=TRUE}
+stargazer(
+  model_msg_covs,
+  model_SI_covs,
+  clust_interaction_covs,
+  type = 'text', 
+  se = list(
+    vcovCL(model_msg_covs), # <----- clustered standard errors
+    vcovCL(model_SI_covs), # <----- clustered standard errors
+    vcovCL(clust_interaction_covs)  # <----- clustered standard errors
+  ), omit.stat = c('ser', 'F'),
+  title="Clustered Regression Results", 
+  align=TRUE,
+  dep.var.labels="Rating",
+  covariate.labels=c("Message Treatment",
+                     "Some Shelter Info Treatment",
+                     "No Message and Some Shelter Info",
+                     "Message and No Shelter Info",
+                     "Message and Some Shelter Info",
+                     "Age 18-24",
+                     "Age 25-34",
+                     "Age 35-44",
+                     "Age 45-54",
+                     "Age 55-64",
+                     "Age 65+", 
+                     "Male",
+                     "Transgender",
+                     "Other Gender",
+                     "In Relationship",
+                     "Single",
+                     "Income 25k-50k",
+                     "Income 50k-75k",
+                     "Income 75k-100k",
+                     "Income 100k-150k",
+                     "Income 150k+",
+                     "Own Pet, Non-Dog",
+                     "Own Dog",
+                     "Prefers Dogs",
+                     "No Pet Preference",
+                     "Prefers Shopping for Dogs",
+                     "Prefers Medium Dogs",
+                     "Prefers Large Dogs"
+                     )
+)
+```
+## Non-Clustered Treatment Results
+```{r non-clustered results, echo=FALSE, include=TRUE}
+stargazer(
+  trad_nk_base,
+  trad_nk_fixed_some,
+  trad_nk_fixed_all,
+  type = 'text', 
+  se = list(
+    vcovCL(trad_nk_base), # <----- clustered standard errors
+    vcovCL(trad_nk_fixed_some), # <----- clustered standard errors
+    vcovCL(trad_nk_fixed_all) # <----- clustered standard errors
+  ), omit.stat = c('ser', 'F'),
+  title="Non-Clustered Regression Results", 
+  align=TRUE,
+  dep.var.labels="Rating",
+  covariate.labels=c("No-Kill Shelter Treatment",
+                     "Age 18-24",
+                     "Age 25-34",
+                     "Age 35-44",
+                     "Age 45-54",
+                     "Age 55-64",
+                     "Age 65+", 
+                     "Male",
+                     "Transgender",
+                     "Other Gender",
+                     "In Relationship",
+                     "Single",
+                     "Income 25k-50k",
+                     "Income 50k-75k",
+                     "Income 75k-100k",
+                     "Income 100k-150k",
+                     "Income 150k+",
+                     "Own Pet, Non-Dog",
+                     "Own Dog",
+                     "Prefers Dogs",
+                     "No Pet Preference",
+                     "Prefers Shopping for Dogs",
+                     "Prefers Medium Dogs",
+                     "Prefers Large Dogs"
+                     )
+)
+```
+
+
+

@@ -28,7 +28,37 @@ library(dplyr)
 
 ```{r load  data}
 d <- fread('../data/das_results_cleaned.csv')
-head(d)
+```
+
+## EDA
+```{r treatment group balance}
+d$msg_treat_str <- ifelse(d$msg_treat_ind==1, "Message", "No Message")
+d$any_SI_treat <- ifelse(d$shelter_tp==0, "No Shelter Info", "Some Shelter Info")
+
+d$clustered_treatment_inter <- ifelse(
+  (d$msg_treat_ind==0)&(d$any_SI_treat=="No Shelter Info"), "No Message, No Shelter Info", ifelse(
+    (d$msg_treat_ind==0)&(d$any_SI_treat=="Some Shelter Info"), "No Message, Some Shelter Info", ifelse(
+      (d$msg_treat_ind==1)&(d$any_SI_treat=="No Shelter Info"), "Message, No Shelter Info", 
+      "Message, Some Shelter Info")))
+
+d$shelter_nk_treat <- ifelse(d$shelter_tp==1, "Traditional Shelter", "No-Kill Shelter")
+
+# Group by message v no message
+d %>% 
+  group_by(msg_treat_str) %>%
+  summarize(count=n(), mean_rating = mean(rating))
+
+# Group by shelter_type
+d %>% 
+  group_by(any_SI_treat) %>%
+  summarize(count=n(), mean_rating = mean(rating))
+
+# Group by sheleter type (excluding none)
+d %>% 
+  filter(shelter_tp != 0) %>%
+  group_by(shelter_nk_treat) %>%
+  summarize(count=n(), mean_rating = mean(rating))
+
 ```
 
 # Clustered Treatments

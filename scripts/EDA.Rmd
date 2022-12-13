@@ -1,0 +1,240 @@
+---
+title: "Dog Adoption Survey Results"
+author: "John Calzaretta, Aditya Mengani, Jesus Fernandex"
+date: "12/06/2022"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r}
+install.packages("lmtest")
+install.packages("sandwich")
+install.packages("AER")
+install.packages("patchwork")
+install.packages("stargazer")
+```
+
+
+```{r load packages, message = FALSE}
+library(stargazer)
+library(data.table)
+library(sandwich)
+library(lmtest)
+library(AER) 
+library(ggplot2) 
+library(patchwork)
+library(dplyr)
+```
+
+```{r load  data}
+d <- fread('../data/das_results_cleaned.csv')
+```
+
+
+
+```{r}
+d %>%
+  group_by(age_bin) %>% 
+  summarize(count = n())  %>%
+  ggplot(aes(x=age_bin, y=count)) + geom_bar(stat='identity')
+
+d %>%
+  group_by(gender) %>% 
+  summarize(count = n())  %>%
+  ggplot(aes(x=gender, y=count)) + geom_bar(stat='identity')
+
+d %>%
+  group_by(marital) %>% 
+  summarize(count = n())  %>%
+  ggplot(aes(x=marital, y=count)) + geom_bar(stat='identity')
+
+d %>%
+  group_by(own_dog) %>% 
+  summarize(count = n())  %>%
+  ggplot(aes(x=own_dog, y=count)) + geom_bar(stat='identity')
+
+d %>%
+  group_by(dog_or_cat) %>% 
+  summarize(count = n())  %>%
+  ggplot(aes(x=dog_or_cat, y=count)) + geom_bar(stat='identity')
+
+d %>%
+  group_by(adopt_or_shop) %>% 
+  summarize(count = n())  %>%
+  ggplot(aes(x=adopt_or_shop, y=count)) + geom_bar(stat='identity')
+
+d %>%
+  group_by(dog_size) %>% 
+  summarize(count = n())  %>%
+  ggplot(aes(x=dog_size, y=count)) + geom_bar(stat='identity')
+```
+
+```{r cov distribbutions as %}
+d %>%
+  group_by(age_bin) %>% 
+  summarize(count = n()/nrow(d)) 
+
+d %>%
+  group_by(gender) %>% 
+  summarize(count = n()/nrow(d))
+
+d %>%
+  group_by(marital) %>% 
+  summarize(count = n()/nrow(d))  #%>%
+  #ggplot(aes(x=marital, y=count)) + geom_bar(stat='identity')
+
+d %>%
+  group_by(own_dog) %>% 
+  summarize(count = n()/nrow(d))  #%>%
+  #ggplot(aes(x=own_dog, y=count)) + geom_bar(stat='identity')
+
+d %>%
+  group_by(dog_or_cat) %>% 
+  summarize(count = n()/nrow(d))  #%>%
+  #ggplot(aes(x=dog_or_cat, y=count)) + geom_bar(stat='identity')
+
+d %>%
+  group_by(adopt_or_shop) %>% 
+  summarize(count = n()/nrow(d))  #%>%
+  #ggplot(aes(x=adopt_or_shop, y=count)) + geom_bar(stat='identity')
+
+d %>%
+  group_by(dog_size) %>% 
+  summarize(count = n()/nrow(d))  #%>%
+  #ggplot(aes(x=dog_size, y=count)) + geom_bar(stat='identity')
+```
+
+```{r age distribution}
+d %>%
+  group_by(age_bin) %>% 
+  summarize(count = n())  %>%
+  ggplot(aes(x=age_bin, y=count)) + geom_bar(stat='identity') +
+  labs(title='Age Distribution', x='Age', y='Count') +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r income distribution}
+d %>%
+  group_by(income_bin) %>% 
+  summarize(count = n())  %>%
+  ggplot(aes(x=income_bin, y=count)) + geom_bar(stat='identity') +
+  labs(title='Income Distribution', x='Income', y='Count') +
+  theme(plot.title = element_text(hjust = 0.5))
+
+d %>%
+  group_by(income_bin, msg_treat_ind) %>% 
+  summarize(count = n())  %>%
+  ggplot(aes(x=income_bin, y=count, fill=msg_treat_ind)) + geom_bar(position="fill", stat='identity') +
+  labs(title='Income Distribution', x='Income', y='Count') +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+```{r}
+d %>%
+  group_by(income_bin, msg_treat_ind) %>%
+  summarize(count = n())
+```
+
+
+
+```{r outcome distribution}
+print(mean(d$rating))
+print(sd(d$rating))
+
+d %>%
+  group_by(rating) %>% 
+  summarize(count = n())  %>%
+  ggplot(aes(x=rating, y=count)) + geom_bar(stat='identity') + 
+  geom_vline(aes(xintercept=mean(rating)),
+            color="blue", linetype="dashed", size=1) +
+  labs(title='Distribution of Dog Ratings', x='Rating', y='Count') +
+  scale_x_discrete(limits=c("1", "2", "3", "4", "5", "6", "7", "8", "9", "10")) +
+  theme(plot.title = element_text(hjust = 0.5))
+
+```
+
+
+```{r treatment group balance}
+d$msg_treat_str <- ifelse(d$msg_treat_ind==1, "Message", "No Message")
+d$any_SI_treat <- ifelse(d$shelter_tp==0, "No Shelter Info", "Some Shelter Info")
+
+d$clustered_treatment_inter <- ifelse(
+  (d$msg_treat_ind==0)&(d$any_SI_treat=="No Shelter Info"), "No Message, No Shelter Info", ifelse(
+    (d$msg_treat_ind==0)&(d$any_SI_treat=="Some Shelter Info"), "No Message, Some Shelter Info", ifelse(
+      (d$msg_treat_ind==1)&(d$any_SI_treat=="No Shelter Info"), "Message, No Shelter Info", 
+      "Message, Some Shelter Info")))
+
+d$shelter_nk_treat <- ifelse(d$shelter_tp==1, "Traditional Shelter", "No-Kill Shelter")
+
+# Group by message v no message
+d %>% 
+  group_by(msg_treat_str) %>%
+  summarize(count=n(), mean_rating = mean(rating))
+
+# Group by shelter_type
+d %>% 
+  group_by(any_SI_treat) %>%
+  summarize(count=n(), mean_rating = mean(rating))
+
+# Group by sheleter type (excluding none)
+d %>% 
+  filter(shelter_tp != 0) %>%
+  group_by(shelter_nk_treat) %>%
+  summarize(count=n(), mean_rating = mean(rating))
+
+```
+
+
+```{r duration vs rating}
+
+d %>%
+  ggplot(aes(x=duration, y=rating)) + 
+  geom_point(position = "jitter") +
+  geom_smooth(method = "lm", alpha = .15)
+
+```
+
+```{r duration bins}
+
+d$duration_bin <- round(d$duration/60)
+
+print(mean(d$duration)/60)
+
+d %>%
+  ggplot(aes(x=duration_bin)) + geom_histogram() +
+  scale_x_continuous(breaks = round(seq(min(d$duration_bin), max(d$duration_bin), by = 1),1))
+
+d %>%
+  ggplot(aes(x=duration, y=rating)) + 
+  geom_point(position = "jitter") +
+  geom_smooth(method = "lm", alpha = .15)
+
+d %>%
+  ggplot(aes(x=duration_bin, y=rating)) + 
+  geom_point(position = "jitter") +
+  geom_smooth(method = "lm", alpha = .15)
+
+d %>% 
+  group_by(duration_bin) %>%
+  summarize(mean_rating = mean(rating)) %>%
+  ggplot(aes(x=duration_bin, y=mean_rating)) + geom_bar(stat='identity')
+
+
+```
+
+```{r}
+
+d %>%
+  filter(msg_treat_ind==0) %>%
+  ggplot(aes(x=duration_bin)) + geom_histogram() +
+  scale_x_continuous(breaks = round(seq(min(d$duration_bin), max(d$duration_bin), by = 1),1))
+
+d %>%
+  filter(msg_treat_ind==1) %>%
+  ggplot(aes(x=duration_bin)) + geom_histogram() +
+  scale_x_continuous(breaks = round(seq(min(d$duration_bin), max(d$duration_bin), by = 1),1))
+
+```
+
+
