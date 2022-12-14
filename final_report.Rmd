@@ -39,21 +39,21 @@ This research attempts to understand the average American’s sentiment toward s
 # Design
 This experiment is conducted through a Qualtrics survey hosted on Amazon Mechanical Turk (MTurk). Before treatment and measurement, the survey begins by collecting both demographic and pet preference information on each participant. The covariates collected are shown in Figure 1, along with the range of possible values.
 
-![Covariate Definitions](~/causal_inference_dog_adoption/images/cov_table.png)
+![Covariate Definitions](../causal_inference_dog_adoption/images/cov_table.png)
 
 This research applies both clustered and non-clustered treatments, breaking the analysis into two different experiments. The distinction between clustered and non-clustered treatments is important because each participant provides ratings for four different dog profiles. The clustered treatments are those which apply across all four dogs; the non-clustered treatments are those which are administered at the individual dog level.
 
 The first treatment is the Educational Message, which is clustered because once the participant reads the message, that treatment will apply to each dog profile. The respondents that are assigned to the treatment group will read a short message with statistics of the dog overcrowding problem as well as a comparison between Traditional and No-Kill shelters. To reduce the risk of noncompliance, respondents in the treatment group must complete a knowledge check by dragging and dropping some of the information provided into the correct shelter type grouping. Figure 2 shows the message treatment and attention check as displayed in the Qualtrics survey.
 
-![Educational Message Treatment](~/causal_inference_dog_adoption/images/message_treat.png)
+![Educational Message Treatment](../causal_inference_dog_adoption/images/message_treat.png)
 
 The respondents assigned to the control group receive a placebo message and will also be presented with an attention check in order to avoid differential attrition. The purpose of this placebo message is to reduce attrition since it is more likely that a person in the treatment group will stop taking the survey once they are presented with the message and attention check. Figure 3 shows the control group placebo message and attention check.
 
-![Placebo Message Treatment](~/causal_inference_dog_adoption/images/ctrl_msg.png){width=80%}
+![Placebo Message Treatment](../causal_inference_dog_adoption/images/ctrl_msg.png){width=80%}
 
 Once the respondents have reviewed the material provided and have answered the attention check questions correctly, they will be presented with the four dog profiles. Depending on the second (clustered) treatment assignment, the participant will either receive “Some Shelter Information” for each dog, or “No Shelter Information” for each dog. This treatment is clustered because participants that receive some shelter information will receive a shelter label for each of the four dogs, and those in the control group receive no shelter information for each dog. The third, non-clustered treatment is the random labeling of No-Kill or Traditional shelter type for each dog - this applies only to the “Some Shelter Information” group in the second treatment. This treatment is non-clustered because each of the four dogs can have a different shelter label despite being presented to a single participant. Another important distinction is that the same four dogs are shown to each participant in the same dog size preference group (Small, Medium, Large). The actual shelter location is not known for these dogs, but instead the shelter labels are randomly assigned to the dog if applicable. Figure 4 shows the same dog profile appearance for each possible shelter type treatment.
 
-![Princess Pinky Shelter Types](~/causal_inference_dog_adoption/images/pinky.png){width=50%}
+![Princess Pinky Shelter Types](../causal_inference_dog_adoption/images/pinky.png){width=50%}
 
 Given each participant’s treatment assignment, each will see a set of 4 dog profiles and answer the question: 
 
@@ -64,24 +64,24 @@ Following the survey execution, this outcome measure will be modeled using two s
 # Randomization
 As previously discussed, the experiment included three different treatments. Each treatment split the sample using 50/50 random assignment. The randomization was handled by Qualtrics, which keeps a count of the participants in each treatment group and perfectly switches off assigning people to control, then treatment. This is a bit different than a perfect randomization function because it always maintains a 1-for-1 control-treatment assignment count; however, we assume that the sequence of participants is entirely independent and thus the 1-for-1 assignment is random. Figure 5 shows the distribution of assignment across the two clustered treatments.
 
-![Clustered Treatment Assignment](~/causal_inference_dog_adoption/images/clust_random.png){width=50%}
+![Clustered Treatment Assignment](../causal_inference_dog_adoption/images/clust_random.png){width=50%}
 
 The third, non-clustered treatment is applied to the 50% of the original sample that belongs to the *Some Shelter Info* group. For each participant in this group, each of the four dog profiles shown has a 50/50 random assignment of the *No-Kill* and *Traditional* shelter types. Figure 6 pictorially represents the flow of survey and three levels of randomization highlighted in colors as part of the experimental design.
 
-![Survey Flow Chart](~/causal_inference_dog_adoption/images/survey_flow.png){width=75%}
+![Survey Flow Chart](../causal_inference_dog_adoption/images/survey_flow.png){width=75%}
 
 # Sample Selection
 A total of 875 participants were recruited in this experiment using the Amazon Mechanical Turk (AMT) platform. The actual survey was designed and developed in the Qualtrics platform and was exposed as a web service using a URL. Furthermore, this URL was embedded into the Amazon Mturk platform to be crowd-sourced to participants of the survey. On successful completion of the survey the participants received $0.40 cents for successful survey participation and completion. The requirements to participate in the survey include: owning an AMT worker account, living in the United States, and having successfully completed at least 3 previous surveys successfully. This entire set up was controlled and monitored by using an admin requester account in AMT. Figure 7 shows the AMT process flow for requesters and workers.
 
-![MTurk User Journey](~/causal_inference_dog_adoption/images/mturk_flow.png){width=50%}
+![MTurk User Journey](../causal_inference_dog_adoption/images/mturk_flow.png){width=50%}
 
 # Results & Analysis
 In this analysis, we will first discuss summary findings of exploratory data analysis, and then define, display, and discuss the results of each model fit on survey outcomes.
 
 ## Summary of Rating Outcomes
-The histogram below shows the sample distribution of the experiment outcom: dog ratings.
+The histogram below shows the sample distribution of the experiment outcome: dog ratings.
 ```{r histogram, echo=FALSE, out.width="50%", include=TRUE}
-d <- fread('~/causal_inference_dog_adoption/data/das_results_cleaned.csv')
+d <- fread('../causal_inference_dog_adoption/data/das_results_cleaned.csv')
 mean_rating <- round(mean(d$rating), 2)
 sd_rating <- round(sd(d$rating), 2)
 
@@ -133,7 +133,7 @@ Each treatment group has a mean rating rather close to the sample mean (`r mean_
 ## Summary of Sample Covariates
 Ideally, our experiment would attract a representation of the United States adult population. Figure 8 below shows the summary distribution of our sample across the some key covariates measured. The following histograms show the distributions of participant age and income.
 
-![Covariate Means](~/causal_inference_dog_adoption/images/cov_means.png){width=50%}
+![Covariate Means](../causal_inference_dog_adoption/images/cov_means.png){width=50%}
 ```{r age and income histograms, echo=FALSE, out.width="50%", include=TRUE}
 d %>%
   group_by(age_bin) %>% 
@@ -275,13 +275,13 @@ trad_nk_fixed_all <- d2[ , lm(rating ~ factor(shelter_nk_treat) +
 # Results
 ## Clustered Treatment Results
 
-![Clustered Treatment Models](~/causal_inference_dog_adoption/images/clustered_results.png){width=50%}
+![Clustered Treatment Models](../causal_inference_dog_adoption/images/clustered_results.png){width=50%}
 
 Figure 9 shows a snippet of the clustered treatment model results (for full list of covariates, see Appendix). In summary, each model produces statistically significant treatment coefficients, but all are very small on the 10-point rating scale and do not provide much practical significance. Model 1 shows that, contrary to our hypothesis, when participants receive the educational message they are likely to rate the dog slightly lower. We expected the educational message would increase sympathy and thus ratings; however, the message may have frustrated time-intensive AMT users and potentially lowered ratings. Model 2 shows that giving the participant some shelter information (whether Traditional or No-Kill labels) slightly increases the average dog rating. We hypothesized that this treatment would have the same direction, but a larger magnitude than shown in models. The clustered treatment interaction model (#3), does not provide any large covariates on the rating scale but it does show that participants who received the message but no shelter information were likely to rate dogs lower than any other treatment interaction. The holdout interaction treatment is the *No Message*, *No Shelter Information* group which yields the highest dog ratings on average, contrary to our hypotheses. The R-Squared does not change much across models, and the value of 0.16 shows that these treatments and covariates do not explain much of the variance in ratings. See the Appendix for the full table of covariate coefficients and clustered standards errors.
 
 ## Non-Clustered Treatment Results
 
-![Non-Clustered Treatment Models](~/causal_inference_dog_adoption/images/non_clust_results.png){width=50%}
+![Non-Clustered Treatment Models](../causal_inference_dog_adoption/images/non_clust_results.png){width=50%}
 
 Figure 10 shows a snippet of the non-clustered treatment model results (for full list of covariates, see Appendix). In summary, the No-Kill shelter type produces statistically significant, but very small and negative treatment coefficients. This means that for those participants that received *some shelter information*, those dogs that were labeled as *Traditional Shelter* dogs received slightly higher ratings on average. We are unable to investigate the interaction of the shelter type treatment with the message treatment due to inconsistencies in the treatment design (clustered vs. non-clustered), but if we were to re-do this assignment it might validate our hypothesis that additional education may shift sympathy from No-Kill to Traditional shelters. Currently, we can only conclude that Traditional shelter dogs received slightly higher ratings than No-Kill shelter dogs on average. The models that include the fixed effects (average rating) at the participant level have much higher R2 (from 0.0003 to 0.702). Model 2, which excludes the State and Duration covariates has lower standard errors and a slightly higher adjusted R2.
 
